@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:my_portfolio/config/resources/app_animations.dart';
+import 'package:my_portfolio/config/resources/app_assets.dart';
+import 'package:my_portfolio/config/resources/app_colors.dart';
+import 'package:my_portfolio/config/resources/app_constants.dart';
+import 'package:my_portfolio/config/resources/app_strings.dart';
+import 'package:my_portfolio/config/resources/app_text_style.dart';
+import 'package:my_portfolio/config/resources/app_values.dart';
+import 'package:my_portfolio/config/responsive/responsive_extensions.dart';
+import 'package:my_portfolio/config/routes/route_manager.dart';
+import 'package:my_portfolio/config/routes/routes_names.dart';
+import 'package:my_portfolio/core/shared_widget/custom_inkwell.dart';
+import 'package:my_portfolio/core/shared_widget/error_widget.dart';
+import 'package:my_portfolio/core/shared_widget/header_for_terms_levels_collections.dart';
+import 'package:my_portfolio/core/shared_widget/painters/challenge_screen_painters.dart';
+import 'package:my_portfolio/features/child_flow/exams/exams/data_to_go_exams.dart';
+import 'package:my_portfolio/my_app/app_reference.dart';
+
+import '../../../config/responsive/responsive_widget.dart';
+import '../../../core/enum/enum_generation.dart';
+import '../../../core/shared_widget/loading_shimmer_list.dart';
+import '../../../core/shared_widget/lock_widget.dart';
+import '../../shared_features/subjects_shared_features/subjects_shared_features.dart';
+import '../questions/shared/data/go_to_questions_data.dart';
+
+part 'screen/child_challenge_screen.dart';
+part 'screen/primary_chaild_challenge_screen.dart';
+part 'widgets/child_card_challenge_widget.dart';
+part 'widgets/child_challenge_title_widget.dart';
+part 'widgets/child_text_widget.dart';
+part 'widgets/primary_card_challenge_widget.dart';
+part 'widgets/primary_challenge_title_widget.dart';
+part 'widgets/primary_text_with_rocket.dart';

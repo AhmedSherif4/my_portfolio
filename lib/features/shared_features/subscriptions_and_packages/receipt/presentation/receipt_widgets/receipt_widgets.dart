@@ -1,0 +1,2 @@
+part of '../../receipt.dart';
+
