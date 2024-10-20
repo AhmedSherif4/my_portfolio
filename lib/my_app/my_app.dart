@@ -128,6 +128,10 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                   onGenerateRoute: AppRouteGenerator.onGenerateRoute,
                   initialRoute: AppRoutesNames.rSplashScreen,
                 ),
+                windowsBuilder: (context) => const MaterialApp(
+                  onGenerateRoute: AppRouteGenerator.onGenerateRoute,
+                  initialRoute: AppRoutesNames.rSplashScreen,
+                ),
               );
             },
           ),
