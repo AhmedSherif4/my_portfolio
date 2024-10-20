@@ -1,4 +1,17 @@
 abstract class AppRoutesNames {
+  static const String rHomeScreen = '/home';
+
+
+
+
+
+
+
+
+
+
+
+
   static const String rComingSoon = '/coming_soon';
 
   //! intro

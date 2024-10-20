@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:hive_flutter/adapters.dart';
 import 'package:injectable/injectable.dart';
-import 'package:my_portfolio/config/resources/app_constants.dart';
 import 'package:my_portfolio/config/storages/keys.dart';
 
 import '../base_local_data_source/base_local_data_source.dart';
@@ -24,25 +23,23 @@ class AppSecurityData implements BaseAppSecurityData {
   @override
   String? getToken() {
     // try {
-      // final tokenExpirationBox = Hive.box<String>(AppKeys.getExpirationKey(AppKeys.accessToken));
+    // final tokenExpirationBox = Hive.box<String>(AppKeys.getExpirationKey(AppKeys.accessToken));
 
-      // final String? tokenExpirationDate = tokenExpirationBox.get(AppKeys.getExpirationKey(AppKeys.accessToken));
+    // final String? tokenExpirationDate = tokenExpirationBox.get(AppKeys.getExpirationKey(AppKeys.accessToken));
 
-      final tokenBox = Hive.box<String>(
-        AppKeys.accessToken
-      );
+    final tokenBox = Hive.box<String>(AppKeys.accessToken);
 
-      final token = tokenBox.get(AppKeys.accessToken);
-      // if (token == null || tokenExpirationDate == null) {
-      //   return null;
-      // }
-      // DateTime expirationTime = DateTime.parse(tokenExpirationDate);
-      // if (expirationTime.isBefore(DateTime.now())) {
-      //   tokenBox.delete(AppKeys.accessToken);
-      //   return null;
-      // } else {
-        return token ==null ? 'not' : utf8.decode(base64Decode( token));
-      // }
+    final token = tokenBox.get(AppKeys.accessToken);
+    // if (token == null || tokenExpirationDate == null) {
+    //   return null;
+    // }
+    // DateTime expirationTime = DateTime.parse(tokenExpirationDate);
+    // if (expirationTime.isBefore(DateTime.now())) {
+    //   tokenBox.delete(AppKeys.accessToken);
+    //   return null;
+    // } else {
+    return token == null ? 'not' : utf8.decode(base64Decode(token));
+    // }
     // } on HiveError {
     //   rethrow;
     // }
@@ -51,7 +48,6 @@ class AppSecurityData implements BaseAppSecurityData {
   @override
   Future<void> saveToken({required String token}) async {
     try {
-
       // if (getToken() != null) deleteToken();
       // final dataExpirationBox = Hive.box<String>(AppKeys.getExpirationKey(AppKeys.accessToken));
       //
@@ -60,9 +56,7 @@ class AppSecurityData implements BaseAppSecurityData {
       //       .toIso8601String(),
       // );
 
-      final tokenBox = Hive.box<String>(
-        AppKeys.accessToken
-      );
+      final tokenBox = Hive.box<String>(AppKeys.accessToken);
 
       await tokenBox.put(AppKeys.accessToken, base64Encode(utf8.encode(token)));
     } on HiveError {

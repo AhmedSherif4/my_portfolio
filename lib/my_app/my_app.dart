@@ -6,21 +6,19 @@ import 'package:my_portfolio/config/resources/app_strings.dart';
 import 'package:my_portfolio/config/resources/theme/light_theme.dart';
 import 'package:my_portfolio/config/responsive/responsive.dart';
 import 'package:my_portfolio/core/services/services_locator.dart';
-import 'package:my_portfolio/features/intro/global/data/app_time_data.dart';
-import 'package:my_portfolio/features/intro/splash/presentation/splash_view_model/splash_bloc.dart';
-import 'package:my_portfolio/features/intro/splash/presentation/splash_view_model/splash_event.dart';
-import 'package:my_portfolio/features/shared_logic/localization_logic/presentation/localization_view_model/localization_bloc.dart';
 import 'package:my_portfolio/my_app/deep_link.dart';
+import 'package:my_portfolio/my_app/splash/splash_screen.dart';
 import '../config/internet_connection/internet_connection_setup.dart';
+import '../config/resources/localization_logic/presentation/localization_view_model/localization_bloc.dart';
+import '../config/resources/localization_logic/presentation/localization_view_model/localization_state.dart';
 import '../config/routes/routes_generator.dart';
 import '../config/routes/routes_names.dart';
 import '../core/shared_models/user/data/user_local_data_source/user_local_data_source.dart';
-import '../features/intro/global/domain/global_usecases/global_usecase.dart';
-import '../features/intro/global/global_view_model/global_bloc.dart';
-import '../features/intro/global/global_view_model/global_event.dart';
-import '../features/shared_logic/localization_logic/presentation/localization_view_model/localization_state.dart';
 import 'app_reference.dart';
 import 'dart:ui' as ui;
+
+import 'global/global_view_model/global_bloc.dart';
+import 'global/global_view_model/global_event.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp._internal();
@@ -53,36 +51,36 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     super.didChangeDependencies();
   }
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) async {
-    switch (state) {
-      case AppLifecycleState.resumed:
-        AppTimeData.setStartTime(DateTime.now());
-        break;
-      case AppLifecycleState.inactive:
-      case AppLifecycleState.paused:
-        if (getIt<UserLocalDataSource>().getUserData() != null &&
-            AppReference.userIsChild() &&
-            !AppReference.userIsGuest()) {
-          AppTimeData.setEndTime(DateTime.now());
-          AppTimeData.endTimeGetter()
-                      .difference(AppTimeData.startTimeGetter())
-                      .inMinutes <= 3
-              ? null
-              : getIt<SendTimeUseCase>()
-                  .call(
-                    AppTimeData.endTimeGetter()
-                        .difference(AppTimeData.startTimeGetter())
-                        .inMinutes,
-                  )
-                  .then((value) {})
-                  .catchError((onError) {});
-        }
-        break;
-      case AppLifecycleState.hidden:
-      case AppLifecycleState.detached:
-    }
-  }
+  // @override
+  // void didChangeAppLifecycleState(AppLifecycleState state) async {
+  //   switch (state) {
+  //     case AppLifecycleState.resumed:
+  //       AppTimeData.setStartTime(DateTime.now());
+  //       break;
+  //     case AppLifecycleState.inactive:
+  //     case AppLifecycleState.paused:
+  //       if (getIt<UserLocalDataSource>().getUserData() != null &&
+  //           AppReference.userIsChild() &&
+  //           !AppReference.userIsGuest()) {
+  //         AppTimeData.setEndTime(DateTime.now());
+  //         AppTimeData.endTimeGetter()
+  //                     .difference(AppTimeData.startTimeGetter())
+  //                     .inMinutes <= 3
+  //             ? null
+  //             : getIt<SendTimeUseCase>()
+  //                 .call(
+  //                   AppTimeData.endTimeGetter()
+  //                       .difference(AppTimeData.startTimeGetter())
+  //                       .inMinutes,
+  //                 )
+  //                 .then((value) {})
+  //                 .catchError((onError) {});
+  //       }
+  //       break;
+  //     case AppLifecycleState.hidden:
+  //     case AppLifecycleState.detached:
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +95,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           create: (context) => getIt<LanguageBloc>(),
         ),
         BlocProvider(
-          create: (context) => getIt<GlobalBloc>()..add(GetInfoDataEvent())..add(CheckAppVersionEvent()),
+          create: (context) => getIt<GlobalBloc>()
+            // ..add(GetInfoDataEvent())..add(CheckAppVersionEvent())
+          ,
         )
       ],
       child:  Stack(
@@ -127,7 +127,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               );
             },
           ),
-          const ConnectionAlert(),
+          // const ConnectionAlert(),
         ],
       ),
     );

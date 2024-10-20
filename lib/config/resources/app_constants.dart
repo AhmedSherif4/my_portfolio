@@ -47,7 +47,8 @@ abstract class AppConstants {
   static const String primaryColorHexCode = '#1F477A';
   static const Duration durationOfConfetti = Duration(milliseconds: 100);
   static const Duration animationTime = Duration(milliseconds: 700);
-  static TextStyle quranStyle = const AppTextStyle().s16.w200.quranFont.titleMedium20;
+  static TextStyle quranStyle =
+      const AppTextStyle().s16.w200.quranFont.titleMedium20;
   static TextDirection arabicDirection(text) =>
       AppReference.detectStringType(text) == StringType.english
           ? TextDirection.ltr

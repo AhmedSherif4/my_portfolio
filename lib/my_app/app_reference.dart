@@ -23,7 +23,7 @@ class AppReference {
   static late ThemeData themeData;
   static final deviceInfoPlugin = DeviceInfoPlugin();
   static final GlobalKey<NavigatorState> _navigatorKey =
-      GlobalKey<NavigatorState>();
+  GlobalKey<NavigatorState>();
   static GlobalKey<NavigatorState> get navigatorKey => _navigatorKey;
 
   static Orientation currentOrientation(context) =>
@@ -84,50 +84,8 @@ class AppReference {
   //   }
   // }
 
-  static bool userIsChild() {
-    if (getIt<UserLocalDataSource>().getUserData()!.type ==
-        UsersType.child.name) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 
-  static bool userIsParent() {
-    if (getIt<UserLocalDataSource>().getUserData()!.type ==
-        UsersType.parent.name) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 
-  static bool userIsInstitution() {
-    if (getIt<UserLocalDataSource>().getUserData()!.type ==
-        UsersType.institution.name) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  static bool childIsPrimary() {
-    if (getIt<UserLocalDataSource>().getUserData()!.stageId == 1 ||
-        getIt<UserLocalDataSource>().getUserData()!.stageId == 4) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  static bool childIsMiddle() {
-    if (getIt<UserLocalDataSource>().getUserData()!.stageId == 2 ||
-        getIt<UserLocalDataSource>().getUserData()!.stageId == 5) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 
 
 

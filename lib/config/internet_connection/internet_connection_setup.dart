@@ -1,27 +1,29 @@
+import 'dart:ui' as ui;
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/config/responsive/responsive_extensions.dart';
 import 'package:my_portfolio/config/routes/route_manager.dart';
 import 'package:my_portfolio/config/routes/routes_names.dart';
-import 'dart:ui' as ui;
+
 import '../resources/app_colors.dart';
 import '../resources/app_text_style.dart';
 import '../resources/app_values.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
-
 
 class ConnectivityController {
   final Connectivity _connectivity = Connectivity();
   ValueNotifier<bool> isConnected = ValueNotifier(false);
   Future<void> init() async {
-    List<ConnectivityResult> result =  await _connectivity.checkConnectivity();
+    List<ConnectivityResult> result = await _connectivity.checkConnectivity();
     isInternetConnected(result);
-    _connectivity.onConnectivityChanged.listen((List<ConnectivityResult> result) {
-       isInternetConnected(result);
-
+    _connectivity.onConnectivityChanged
+        .listen((List<ConnectivityResult> result) {
+      isInternetConnected(result);
     });
   }
+
   bool isInternetConnected(List<ConnectivityResult?> result) {
-    if (result.contains(ConnectivityResult.none) ) {
+    if (result.contains(ConnectivityResult.none)) {
       isConnected.value = false;
       return false;
     } else if (result.contains(ConnectivityResult.mobile) ||
@@ -33,13 +35,12 @@ class ConnectivityController {
   }
 }
 
-
-
 class ConnectionAlert extends StatefulWidget {
   const ConnectionAlert({super.key});
   @override
   State<ConnectionAlert> createState() => _ConnectionAlertState();
 }
+
 class _ConnectionAlertState extends State<ConnectionAlert> {
   ConnectivityController connectivityController = ConnectivityController();
   @override
@@ -47,6 +48,7 @@ class _ConnectionAlertState extends State<ConnectionAlert> {
     connectivityController.init();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
@@ -61,29 +63,32 @@ class _ConnectionAlertState extends State<ConnectionAlert> {
   }
 }
 
-
 class SplashConnectionAlert extends StatefulWidget {
   const SplashConnectionAlert({super.key});
   @override
   State<SplashConnectionAlert> createState() => _SplashConnectionAlertState();
 }
+
 class _SplashConnectionAlertState extends State<SplashConnectionAlert> {
-  ConnectivityController
-  connectivityController = ConnectivityController();
+  ConnectivityController connectivityController = ConnectivityController();
   @override
   void initState() {
-    connectivityController._connectivity.onConnectivityChanged.listen((List<ConnectivityResult> result) {
-      if(result.contains(ConnectivityResult.wifi) || result.contains(ConnectivityResult.mobile)) {
-        if(mounted) {
-          RouteManager.rPushNamedAndRemoveUntil(context: context, rName: AppRoutesNames.rSplashScreen);
+    connectivityController._connectivity.onConnectivityChanged
+        .listen((List<ConnectivityResult> result) {
+      if (result.contains(ConnectivityResult.wifi) ||
+          result.contains(ConnectivityResult.mobile)) {
+        if (mounted) {
+          RouteManager.rPushNamedAndRemoveUntil(
+              context: context, rName: AppRoutesNames.rSplashScreen);
         }
       }
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    return  const SizedBox.shrink();
+    return const SizedBox.shrink();
   }
 }
 
@@ -100,19 +105,23 @@ class _NetworkAlertBar extends StatelessWidget {
         color: AppColors.failColor,
         height: AppSize.s50.responsiveHeight,
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal:AppSize.s20.responsiveWidth),
+          padding:
+              EdgeInsets.symmetric(horizontal: AppSize.s20.responsiveWidth),
           child: Row(
             textDirection: ui.TextDirection.rtl,
-            children:  [
+            children: [
               const Icon(
                 Icons.error,
                 color: AppColors.white,
                 textDirection: ui.TextDirection.rtl,
               ),
               AppSize.s10.sizedBoxWidth,
-              Text("لا يوجد اتصال بالانترنت",
+              Text(
+                "لا يوجد اتصال بالانترنت",
                 textDirection: ui.TextDirection.rtl,
-                style: const AppTextStyle().bodyMedium14.copyWith(color: AppColors.white),
+                style: const AppTextStyle()
+                    .bodyMedium14
+                    .copyWith(color: AppColors.white),
               ),
             ],
           ),

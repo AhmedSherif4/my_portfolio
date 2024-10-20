@@ -1,6 +1,5 @@
 import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
-import '../features/intro/splash/presentation/view/splash_screen.dart';
 import 'my_app.dart';
 
 class DeepLinkManager {
@@ -20,11 +19,11 @@ class DeepLinkManager {
       // print('Received deep link: $uri');
       // print('Path: $path');
       // print('id: $id');
-      navigatorKey.currentState!.pushReplacement(MaterialPageRoute(
-          builder: (context) => SplashScreen(
-            path: path,
-            id: id,
-          )));
+      // navigatorKey.currentState!.pushReplacement(MaterialPageRoute(
+      //     builder: (context) => SplashScreen(
+      //       path: path,
+      //       id: id,
+      //     )));
     });
   }
 }

@@ -19,8 +19,6 @@ class AppTextStyle {
   static const String balooBhaijaan2 = 'BalooBhaijaan2';
   static const String quranFont = 'QuranFont';
 
-
-
   static TextStyle cacheDisplayLarge32(double fontSize) => TextStyle(
       color: AppColors.textColor,
       fontFamily: balooBhaijaan2,
@@ -30,92 +28,92 @@ class AppTextStyle {
   static get displayLarge32 => cacheDisplayLarge32(32.responsiveFontSize);
 
   static TextStyle cacheDisplayMedium30(double fontSize) => TextStyle(
-    color: AppColors.textColor,
-    fontFamily: balooBhaijaan2,
-    fontWeight: FontWeight.w700,
-    fontSize: fontSize,
-  );
+        color: AppColors.textColor,
+        fontFamily: balooBhaijaan2,
+        fontWeight: FontWeight.w700,
+        fontSize: fontSize,
+      );
 
   static get displayMedium30 => cacheDisplayMedium30(30.responsiveFontSize);
 
   static TextStyle cacheDisplaySmall28(double fontSize) => TextStyle(
-    color: AppColors.textColor,
-    fontFamily: balooBhaijaan2,
-    fontWeight: FontWeight.w700,
-    fontSize: fontSize,
-  );
+        color: AppColors.textColor,
+        fontFamily: balooBhaijaan2,
+        fontWeight: FontWeight.w700,
+        fontSize: fontSize,
+      );
 
   static get displaySmall28 => cacheDisplaySmall28(28.responsiveFontSize);
 
   static TextStyle cacheTitleLarge22(double fontSize) => TextStyle(
-    color: AppColors.textColor,
-    fontFamily: balooBhaijaan2,
-    fontWeight: FontWeight.w600,
-    fontSize: fontSize,
-  );
+        color: AppColors.textColor,
+        fontFamily: balooBhaijaan2,
+        fontWeight: FontWeight.w600,
+        fontSize: fontSize,
+      );
 
   static get titleLarge22 => cacheTitleLarge22(22.responsiveFontSize);
 
   static TextStyle cacheTitleMedium20(double fontSize) => TextStyle(
-    color: AppColors.textColor,
-    fontFamily: balooBhaijaan2,
-    fontWeight: FontWeight.w600,
-    fontSize: fontSize,
-  );
+        color: AppColors.textColor,
+        fontFamily: balooBhaijaan2,
+        fontWeight: FontWeight.w600,
+        fontSize: fontSize,
+      );
 
   static get titleMedium20 => cacheTitleMedium20(20.responsiveFontSize);
 
   static TextStyle cacheTitleSmall18(double fontSize) => TextStyle(
-    color: AppColors.textColor,
-    fontFamily: balooBhaijaan2,
-    fontWeight: FontWeight.w600,
-    fontSize: fontSize,
-  );
+        color: AppColors.textColor,
+        fontFamily: balooBhaijaan2,
+        fontWeight: FontWeight.w600,
+        fontSize: fontSize,
+      );
 
   static get titleSmall18 => cacheTitleSmall18(18.responsiveFontSize);
 
   static TextStyle cacheBodyLarge16(double fontSize) => TextStyle(
-    color: AppColors.textColor,
-    fontFamily: balooBhaijaan2,
-    fontWeight: FontWeight.w400,
-    fontSize: fontSize,
-  );
+        color: AppColors.textColor,
+        fontFamily: balooBhaijaan2,
+        fontWeight: FontWeight.w400,
+        fontSize: fontSize,
+      );
 
   static get bodyLarge16 => cacheBodyLarge16(16.responsiveFontSize);
 
   static TextStyle cacheBodyMedium14(double fontSize) => TextStyle(
-    color: AppColors.textColor,
-    fontFamily: balooBhaijaan2,
-    fontWeight: FontWeight.w400,
-    fontSize: fontSize,
-  );
+        color: AppColors.textColor,
+        fontFamily: balooBhaijaan2,
+        fontWeight: FontWeight.w400,
+        fontSize: fontSize,
+      );
 
   static get bodyMedium14 => cacheBodyMedium14(14.responsiveFontSize);
 
   static TextStyle cacheBodySmall12(double fontSize) => TextStyle(
-    color: AppColors.textColor,
-    fontFamily: balooBhaijaan2,
-    fontWeight: FontWeight.w400,
-    fontSize: fontSize,
-  );
+        color: AppColors.textColor,
+        fontFamily: balooBhaijaan2,
+        fontWeight: FontWeight.w400,
+        fontSize: fontSize,
+      );
 
   static get bodySmall12 => cacheBodySmall12(12.responsiveFontSize);
 
   static TextStyle cacheErrorTextStyle12(double fontSize) => TextStyle(
-    color: AppColors.failColor,
-    fontFamily: balooBhaijaan2,
-    fontWeight: FontWeight.w400,
-    fontSize: fontSize,
-  );
+        color: AppColors.failColor,
+        fontFamily: balooBhaijaan2,
+        fontWeight: FontWeight.w400,
+        fontSize: fontSize,
+      );
 
   static get errorTextStyle12 => cacheErrorTextStyle12(12.responsiveFontSize);
 
   static TextStyle cacheHintTextStyle14(double fontSize) => TextStyle(
-    color: AppColors.textColor,
-    fontFamily: balooBhaijaan2,
-    fontWeight: FontWeight.w400,
-    fontSize: fontSize,
-  );
+        color: AppColors.textColor,
+        fontFamily: balooBhaijaan2,
+        fontWeight: FontWeight.w400,
+        fontSize: fontSize,
+      );
 
   static get hintTextStyle14 => cacheHintTextStyle14(14.responsiveFontSize);
 
@@ -203,11 +201,11 @@ extension AppStyleFontStyle on AppTextStyle {
       );
 
   TextStyle get titleLarge22 => AppTextStyle.titleLarge22.copyWith(
-    color: color,
-    fontFamily: fontFamily,
-    fontWeight: fontWeight,
-    fontSize: fontSize,
-  );
+        color: color,
+        fontFamily: fontFamily,
+        fontWeight: fontWeight,
+        fontSize: fontSize,
+      );
 
   TextStyle get titleMedium20 =>
       AppReference.themeData.textTheme.titleMedium!.copyWith(

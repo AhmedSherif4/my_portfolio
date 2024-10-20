@@ -1,14 +1,14 @@
 import 'dart:io';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:my_portfolio/config/routes/routes_names.dart';
 import 'package:my_portfolio/core/api/api_consumer.dart';
 import 'package:my_portfolio/my_app/app_reference.dart';
-import 'package:my_portfolio/my_app/my_app.dart';
-import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 @LazySingleton()
 class NotificationSetup {
@@ -127,66 +127,66 @@ class NotificationSetup {
   }
 
   static void _handleMessage(RemoteMessage message) {
-    if (message.data['type'] == 'notification') {
-      navigatorKey.currentState!.pushNamedAndRemoveUntil(
-        AppRoutesNames.rNotificationScreen,
-        (route) => false,
-      );
-    } else if (message.data['type'] == 'coupon') {
-      navigatorKey.currentState!.pushNamedAndRemoveUntil(
-        AppRoutesNames.rCouponsScreen,
-        (route) => false,
-      );
-    } else if (message.data['type'] == 'newExam') {
-      if (AppReference.childIsPrimary()) {
-        navigatorKey.currentState!.pushNamedAndRemoveUntil(
-          AppRoutesNames.rPrimaryChildChallengeScreen,
-          (route) => false,
-        );
-      } else {
-        navigatorKey.currentState!.pushNamedAndRemoveUntil(
-          AppRoutesNames.rChildChallengeScreen,
-          (route) => false,
-        );
-      }
-    } else if (message.data['type'] == 'childSolveQuestion' &&
-        AppReference.userIsParent()) {
-      // data must be like this data : { 'type' : 'childSolveQuestion', 'childId': '123' }
-      navigatorKey.currentState!.pushNamedAndRemoveUntil(
-        AppRoutesNames.rParentChildDetails,
-        arguments: message.data['childId'],
-        (route) => false,
-      );
-    } else if (message.data['type'] == 'nafeese' &&
-        AppReference.userIsChild()) {
-      navigatorKey.currentState!.pushNamedAndRemoveUntil(
-        AppRoutesNames.rNafeesPlanScreen,
-        (route) => false,
-      );
-    } else if (message.data['type'] == 'cart') {
-      navigatorKey.currentState!.pushNamedAndRemoveUntil(
-        AppRoutesNames.rCartScreen,
-        arguments: message.data['childId'] ?? 0,
-        (route) => false,
-      );
-    } else if (message.data['type'] == 'parentAcceptInvention' &&
-        AppReference.userIsChild()) {
-      navigatorKey.currentState!.pushNamedAndRemoveUntil(
-        AppRoutesNames.rParentPreviewForChildScreen,
-        (route) => false,
-      );
-    } else if (message.data['type'] == 'RateRepliedFromAdmin') {
-      navigatorKey.currentState!.pushNamedAndRemoveUntil(
-        AppRoutesNames.rReviewScreen,
-        (route) => false,
-      );
-    } else if (message.data['type'] == 'inviteFriends' &&
-        AppReference.userIsChild()) {
-      navigatorKey.currentState!.pushNamedAndRemoveUntil(
-        AppRoutesNames.rInviteFriendScreen,
-        (route) => false,
-      );
-    }
+    // if (message.data['type'] == 'notification') {
+    //   navigatorKey.currentState!.pushNamedAndRemoveUntil(
+    //     AppRoutesNames.rNotificationScreen,
+    //     (route) => false,
+    //   );
+    // } else if (message.data['type'] == 'coupon') {
+    //   navigatorKey.currentState!.pushNamedAndRemoveUntil(
+    //     AppRoutesNames.rCouponsScreen,
+    //     (route) => false,
+    //   );
+    // } else if (message.data['type'] == 'newExam') {
+    //   if (AppReference.childIsPrimary()) {
+    //     navigatorKey.currentState!.pushNamedAndRemoveUntil(
+    //       AppRoutesNames.rPrimaryChildChallengeScreen,
+    //       (route) => false,
+    //     );
+    //   } else {
+    //     navigatorKey.currentState!.pushNamedAndRemoveUntil(
+    //       AppRoutesNames.rChildChallengeScreen,
+    //       (route) => false,
+    //     );
+    //   }
+    // } else if (message.data['type'] == 'childSolveQuestion' &&
+    //     AppReference.userIsParent()) {
+    //   // data must be like this data : { 'type' : 'childSolveQuestion', 'childId': '123' }
+    //   navigatorKey.currentState!.pushNamedAndRemoveUntil(
+    //     AppRoutesNames.rParentChildDetails,
+    //     arguments: message.data['childId'],
+    //     (route) => false,
+    //   );
+    // } else if (message.data['type'] == 'nafeese' &&
+    //     AppReference.userIsChild()) {
+    //   navigatorKey.currentState!.pushNamedAndRemoveUntil(
+    //     AppRoutesNames.rNafeesPlanScreen,
+    //     (route) => false,
+    //   );
+    // } else if (message.data['type'] == 'cart') {
+    //   navigatorKey.currentState!.pushNamedAndRemoveUntil(
+    //     AppRoutesNames.rCartScreen,
+    //     arguments: message.data['childId'] ?? 0,
+    //     (route) => false,
+    //   );
+    // } else if (message.data['type'] == 'parentAcceptInvention' &&
+    //     AppReference.userIsChild()) {
+    //   navigatorKey.currentState!.pushNamedAndRemoveUntil(
+    //     AppRoutesNames.rParentPreviewForChildScreen,
+    //     (route) => false,
+    //   );
+    // } else if (message.data['type'] == 'RateRepliedFromAdmin') {
+    //   navigatorKey.currentState!.pushNamedAndRemoveUntil(
+    //     AppRoutesNames.rReviewScreen,
+    //     (route) => false,
+    //   );
+    // } else if (message.data['type'] == 'inviteFriends' &&
+    //     AppReference.userIsChild()) {
+    //   navigatorKey.currentState!.pushNamedAndRemoveUntil(
+    //     AppRoutesNames.rInviteFriendScreen,
+    //     (route) => false,
+    //   );
+    // }
   }
 
   // Handle IOS Background Notification
