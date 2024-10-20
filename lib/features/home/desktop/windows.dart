@@ -1,4 +1,5 @@
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:flutter/material.dart';
 
 
 class HomeWindows extends StatefulWidget {
@@ -12,8 +13,7 @@ class _HomeWindowsState extends State<HomeWindows> {
 
   @override
   Widget build(BuildContext context) {
-    return NavigationView(
+    return const Center(child: Text('Windows'));
 
-    );
   }
 }

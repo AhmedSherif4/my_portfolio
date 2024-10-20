@@ -12,6 +12,10 @@ T adaptiveValue<T>({
   T Function()? fuchsia,
   T Function()? linux,
 }) {
+  if (kIsWeb && web != null) {
+    return web();
+  }
+
   switch (defaultTargetPlatform) {
     case TargetPlatform.android:
       return android();
@@ -46,7 +50,7 @@ Exception _mustProvide<T>(String platformName) {
 /// If a builder function is provided for the current platform, it is invoked and returned.
 class PlatformBuilder extends StatelessWidget {
   const PlatformBuilder({
-    Key? key,
+    super.key,
     required this.androidBuilder,
     required this.iosBuilder,
     this.windowsBuilder,
@@ -54,7 +58,7 @@ class PlatformBuilder extends StatelessWidget {
     this.fuchsiaBuilder,
     this.linuxBuilder,
     this.webBuilder,
-  }) : super(key: key);
+  });
 
   // mobiles
   final WidgetBuilder iosBuilder;

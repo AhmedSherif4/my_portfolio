@@ -1,4 +1,6 @@
+import 'dart:ui' as ui;
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -8,17 +10,13 @@ import 'package:my_portfolio/config/responsive/responsive.dart';
 import 'package:my_portfolio/core/services/services_locator.dart';
 import 'package:my_portfolio/my_app/deep_link.dart';
 import 'package:my_portfolio/my_app/splash/splash_screen.dart';
-import '../config/internet_connection/internet_connection_setup.dart';
+
+import '../config/adaptive/platform_builder.dart';
 import '../config/resources/localization_logic/presentation/localization_view_model/localization_bloc.dart';
 import '../config/resources/localization_logic/presentation/localization_view_model/localization_state.dart';
 import '../config/routes/routes_generator.dart';
 import '../config/routes/routes_names.dart';
-import '../core/shared_models/user/data/user_local_data_source/user_local_data_source.dart';
-import 'app_reference.dart';
-import 'dart:ui' as ui;
-
 import 'global/global_view_model/global_bloc.dart';
-import 'global/global_view_model/global_event.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp._internal();
@@ -38,6 +36,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     DeepLinkManager.instance.initDeepLink();
     super.initState();
   }
+
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
@@ -86,44 +85,49 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-
-        BlocProvider(
-          // create: (context) => getIt<SplashBloc>()..add(CheckDevice()),
-          create: (context) => getIt<SplashBloc>(),
-        ),
+        // BlocProvider(
+        //   // create: (context) => getIt<SplashBloc>()..add(CheckDevice()),
+        //   create: (context) => getIt<SplashBloc>(),
+        // ),
         BlocProvider(
           create: (context) => getIt<LanguageBloc>(),
         ),
-        BlocProvider(
-          create: (context) => getIt<GlobalBloc>()
-            // ..add(GetInfoDataEvent())..add(CheckAppVersionEvent())
-          ,
-        )
+        // BlocProvider(
+        //   create: (context) => getIt<GlobalBloc>()
+        //   // ..add(GetInfoDataEvent())..add(CheckAppVersionEvent())
+        //   ,
+        // )
       ],
-      child:  Stack(
+      child: Stack(
         alignment: AlignmentDirectional.bottomStart,
         textDirection: ui.TextDirection.ltr,
         children: [
           BlocBuilder<LanguageBloc, LanguageState>(
             builder: (context, state) {
-              return MaterialApp(
-                localizationsDelegates: const [
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                ],
-                supportedLocales: const [
-                  Locale('ar', 'SA'),
-                ],
-                locale: state.selectedLanguage.value,
-
-                debugShowCheckedModeBanner: false,
-                title: AppStrings.appNameArabic,
-                themeMode: ThemeMode.light,
-                theme: appLightTheme(),
-                onGenerateRoute: AppRouteGenerator.onGenerateRoute,
-                initialRoute: AppRoutesNames.rSplashScreen,
-                navigatorKey: navigatorKey,
+              return PlatformBuilder(
+                androidBuilder: (context) => MaterialApp(
+                  localizationsDelegates: const [
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                  ],
+                  supportedLocales: const [
+                    Locale('ar', 'SA'),
+                  ],
+                  locale: state.selectedLanguage.value,
+                  debugShowCheckedModeBanner: false,
+                  title: AppStrings.appNameArabic,
+                  themeMode: ThemeMode.light,
+                  theme: appLightTheme(),
+                  onGenerateRoute: AppRouteGenerator.onGenerateRoute,
+                  initialRoute: AppRoutesNames.rSplashScreen,
+                  navigatorKey: navigatorKey,
+                ),
+                iosBuilder: (context) => const CupertinoApp(),
+                webBuilder: (context) => const MaterialApp(
+                  onGenerateRoute: AppRouteGenerator.onGenerateRoute,
+                  initialRoute: AppRoutesNames.rSplashScreen,
+                ),
               );
             },
           ),
@@ -135,4 +139,3 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 }
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-

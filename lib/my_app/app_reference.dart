@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/config/routes/route_manager.dart';
 import 'package:my_portfolio/config/routes/routes_names.dart';
@@ -39,9 +40,11 @@ class AppReference {
   static void getDeviceInfo(BuildContext context) {
     final sizeMediaQuery = MediaQuery.sizeOf(context);
     themeData = Theme.of(context);
-    deviceIsAndroid = Platform.isAndroid;
+    if(!kIsWeb){
+      deviceIsAndroid = Platform.isAndroid;
+      deviceIsIos = Platform.isIOS;
 
-    deviceIsIos = Platform.isIOS;
+    }
     final double devicePixelRatio = sizeMediaQuery.shortestSide;
     if (devicePixelRatio < 550) {
       deviceIsTablet = false;

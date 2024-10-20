@@ -93,19 +93,20 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child: BlocBuilder<GlobalBloc, GlobalState>(builder: (context, state
-          ){
-            switch (state.infoState){
-              case RequestStates.loading:
-                return SvgPicture.asset(
-                  AppImagesAssets.sLogoDay,
-                  height: 150.responsiveHeight,
-                  width: 150.responsiveWidth,
-                  fit: BoxFit.fitWidth,
-                );
-              case RequestStates.loaded:
-                return state.infoModel.splashView?
-                Container(
+          child:
+          // BlocBuilder<GlobalBloc, GlobalState>(builder: (context, state
+          // ){
+            // switch (state.infoState){
+            //   case RequestStates.loading:
+            //     return SvgPicture.asset(
+            //       AppImagesAssets.sLogoDay,
+            //       height: 150.responsiveHeight,
+            //       width: 150.responsiveWidth,
+            //       fit: BoxFit.fitWidth,
+            //     );
+            //   case RequestStates.loaded:
+            //     return state.infoModel.splashView?
+            Container(
                   color: AppColors.primaryColor,
                   height: AppReference.deviceHeight(context),
                   width: AppReference.deviceWidth(context),
@@ -158,168 +159,168 @@ class _SplashScreenState extends State<SplashScreen>
                       // ),
                     ],
                   ),
-                )
-                    :Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        const SplashConnectionAlert(),
-                        Center(
-                          child: AnimatedOpacity(
-                            curve: Curves.fastLinearToSlowEaseIn,
-                            duration: const Duration(seconds: 2),
-                            opacity: _opacity,
-                            child: AnimatedContainer(
-                              curve: Curves.fastLinearToSlowEaseIn,
-                              duration: const Duration(seconds: 2),
-                              height: _value
-                                  ? 50.responsiveHeight
-                                  : 100.responsiveHeight,
-                              width:
-                              _value ? 50.responsiveWidth : 200.responsiveWidth,
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: AppColors.primaryColor.withOpacity(.2),
-                                    // blurRadius: 100,
-                                    // spreadRadius: 10,
-                                  ),
-                                ],
-                                color: AppColors.primaryColor,
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: Container(
-                                  width: AppReference.deviceWidth(context) ,
-                                  height: AppReference.deviceHeight(context) ,
-                                  decoration: const BoxDecoration(
-                                      color: AppColors.primaryColor,
-                                      shape: BoxShape.circle),
-                                  child: AnimatedBuilder(
-                                    animation: scaleAnimation,
-                                    builder: (_, child) => Transform.scale(
-                                      scale: scaleAnimation.value,
-                                      child: Container(
-                                        decoration: const BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: AppColors.primaryColor,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SvgPicture.asset(
-                          AppImagesAssets.sLogoDay,
-                          height: AppConstants.appLogoHeight.responsiveHeight,
-                          width: AppConstants.appLogoWidth.responsiveWidth,
-                          fit: BoxFit.fill,
-                        ),
-                      ],
-                    ),
-                    AppSize.s20.sizedBoxHeight,
-                    Text(
-                      AppStrings
-                          .ourGoalIsToCreateAGenerationThatMastersWhatItLearns,
-                      style: AppReference.themeData.textTheme.bodyLarge!.copyWith(
-                        color: AppColors.white,
-                      ),
-                    ),
-                  ],
-                );
-              case RequestStates.error:
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        const SplashConnectionAlert(),
-                        Center(
-                          child: AnimatedOpacity(
-                            curve: Curves.fastLinearToSlowEaseIn,
-                            duration: const Duration(seconds: 2),
-                            opacity: _opacity,
-                            child: AnimatedContainer(
-                              curve: Curves.fastLinearToSlowEaseIn,
-                              duration: const Duration(seconds: 2),
-                              height: _value
-                                  ? 50.responsiveHeight
-                                  : 100.responsiveHeight,
-                              width:
-                              _value ? 50.responsiveWidth : 200.responsiveWidth,
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: AppColors.primaryColor.withOpacity(.2),
-                                    // blurRadius: 100,
-                                    // spreadRadius: 10,
-                                  ),
-                                ],
-                                color: AppColors.primaryColor,
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: Container(
-                                  width: AppReference.deviceWidth(context) ,
-                                  height: AppReference.deviceHeight(context) ,
-                                  decoration: const BoxDecoration(
-                                      color: AppColors.primaryColor,
-                                      shape: BoxShape.circle),
-                                  child: AnimatedBuilder(
-                                    animation: scaleAnimation,
-                                    builder: (_, child) => Transform.scale(
-                                      scale: scaleAnimation.value,
-                                      child: Container(
-                                        decoration: const BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: AppColors.primaryColor,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SvgPicture.asset(
-                          AppImagesAssets.sSplashImage,
-                          height: AppConstants.appLogoHeight.responsiveHeight,
-                          width: AppConstants.appLogoWidth.responsiveWidth,
-                          fit: BoxFit.fill,
-                        ),
-                      ],
-                    ),
-                    AppSize.s20.sizedBoxHeight,
-                    Text(
-                      AppStrings
-                          .ourGoalIsToCreateAGenerationThatMastersWhatItLearns,
-                      style: AppReference.themeData.textTheme.bodyLarge!.copyWith(
-                        color: AppColors.white,
-                      ),
-                    ),
-                  ],
-                );
-              default :
-                return  SvgPicture.asset(
-                  AppImagesAssets.sLogoDay,
-                  height: 150.responsiveHeight,
-                  width: 150.responsiveWidth,
-                  fit: BoxFit.fitWidth,
-                );
-            }
-          },),
-        ),
+                ),
+            //         :Column(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       crossAxisAlignment: CrossAxisAlignment.center,
+            //       children: [
+            //
+            //         Stack(
+            //           alignment: Alignment.center,
+            //           children: [
+            //             const SplashConnectionAlert(),
+            //             Center(
+            //               child: AnimatedOpacity(
+            //                 curve: Curves.fastLinearToSlowEaseIn,
+            //                 duration: const Duration(seconds: 2),
+            //                 opacity: _opacity,
+            //                 child: AnimatedContainer(
+            //                   curve: Curves.fastLinearToSlowEaseIn,
+            //                   duration: const Duration(seconds: 2),
+            //                   height: _value
+            //                       ? 50.responsiveHeight
+            //                       : 100.responsiveHeight,
+            //                   width:
+            //                   _value ? 50.responsiveWidth : 200.responsiveWidth,
+            //                   decoration: BoxDecoration(
+            //                     boxShadow: [
+            //                       BoxShadow(
+            //                         color: AppColors.primaryColor.withOpacity(.2),
+            //                         // blurRadius: 100,
+            //                         // spreadRadius: 10,
+            //                       ),
+            //                     ],
+            //                     color: AppColors.primaryColor,
+            //                     shape: BoxShape.circle,
+            //                   ),
+            //                   child: Center(
+            //                     child: Container(
+            //                       width: AppReference.deviceWidth(context) ,
+            //                       height: AppReference.deviceHeight(context) ,
+            //                       decoration: const BoxDecoration(
+            //                           color: AppColors.primaryColor,
+            //                           shape: BoxShape.circle),
+            //                       child: AnimatedBuilder(
+            //                         animation: scaleAnimation,
+            //                         builder: (_, child) => Transform.scale(
+            //                           scale: scaleAnimation.value,
+            //                           child: Container(
+            //                             decoration: const BoxDecoration(
+            //                               shape: BoxShape.circle,
+            //                               color: AppColors.primaryColor,
+            //                             ),
+            //                           ),
+            //                         ),
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ),
+            //             ),
+            //             SvgPicture.asset(
+            //               AppImagesAssets.sLogoDay,
+            //               height: AppConstants.appLogoHeight.responsiveHeight,
+            //               width: AppConstants.appLogoWidth.responsiveWidth,
+            //               fit: BoxFit.fill,
+            //             ),
+            //           ],
+            //         ),
+            //         AppSize.s20.sizedBoxHeight,
+            //         Text(
+            //           AppStrings
+            //               .ourGoalIsToCreateAGenerationThatMastersWhatItLearns,
+            //           style: AppReference.themeData.textTheme.bodyLarge!.copyWith(
+            //             color: AppColors.white,
+            //           ),
+            //         ),
+            //       ],
+            //     );
+            //   case RequestStates.error:
+            //     return Column(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       crossAxisAlignment: CrossAxisAlignment.center,
+            //       children: [
+            //
+            //         Stack(
+            //           alignment: Alignment.center,
+            //           children: [
+            //             const SplashConnectionAlert(),
+            //             Center(
+            //               child: AnimatedOpacity(
+            //                 curve: Curves.fastLinearToSlowEaseIn,
+            //                 duration: const Duration(seconds: 2),
+            //                 opacity: _opacity,
+            //                 child: AnimatedContainer(
+            //                   curve: Curves.fastLinearToSlowEaseIn,
+            //                   duration: const Duration(seconds: 2),
+            //                   height: _value
+            //                       ? 50.responsiveHeight
+            //                       : 100.responsiveHeight,
+            //                   width:
+            //                   _value ? 50.responsiveWidth : 200.responsiveWidth,
+            //                   decoration: BoxDecoration(
+            //                     boxShadow: [
+            //                       BoxShadow(
+            //                         color: AppColors.primaryColor.withOpacity(.2),
+            //                         // blurRadius: 100,
+            //                         // spreadRadius: 10,
+            //                       ),
+            //                     ],
+            //                     color: AppColors.primaryColor,
+            //                     shape: BoxShape.circle,
+            //                   ),
+            //                   child: Center(
+            //                     child: Container(
+            //                       width: AppReference.deviceWidth(context) ,
+            //                       height: AppReference.deviceHeight(context) ,
+            //                       decoration: const BoxDecoration(
+            //                           color: AppColors.primaryColor,
+            //                           shape: BoxShape.circle),
+            //                       child: AnimatedBuilder(
+            //                         animation: scaleAnimation,
+            //                         builder: (_, child) => Transform.scale(
+            //                           scale: scaleAnimation.value,
+            //                           child: Container(
+            //                             decoration: const BoxDecoration(
+            //                               shape: BoxShape.circle,
+            //                               color: AppColors.primaryColor,
+            //                             ),
+            //                           ),
+            //                         ),
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ),
+            //             ),
+            //             SvgPicture.asset(
+            //               AppImagesAssets.sSplashImage,
+            //               height: AppConstants.appLogoHeight.responsiveHeight,
+            //               width: AppConstants.appLogoWidth.responsiveWidth,
+            //               fit: BoxFit.fill,
+            //             ),
+            //           ],
+            //         ),
+            //         AppSize.s20.sizedBoxHeight,
+            //         Text(
+            //           AppStrings
+            //               .ourGoalIsToCreateAGenerationThatMastersWhatItLearns,
+            //           style: AppReference.themeData.textTheme.bodyLarge!.copyWith(
+            //             color: AppColors.white,
+            //           ),
+            //         ),
+            //       ],
+            //     );
+            //   default :
+            //     return  SvgPicture.asset(
+            //       AppImagesAssets.sLogoDay,
+            //       height: 150.responsiveHeight,
+            //       width: 150.responsiveWidth,
+            //       fit: BoxFit.fitWidth,
+            //     );
+            // }
+          // },
+  ),
       ),
     );
   }

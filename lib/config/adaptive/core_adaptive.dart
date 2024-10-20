@@ -12,11 +12,11 @@ abstract class CoreAdaptiveScreen extends StatelessWidget {
     return adaptiveValue(
       ios: () => ios(context),
       android: () => android(context),
+      web: () => web(context),
       fuchsia: () => _buildOrThrow(fuchsia, 'fuchsia', context),
       windows: () => _buildOrThrow(windows, 'windows', context),
       macOS: () => _buildOrThrow(mac, 'macOS', context),
       linux: () => _buildOrThrow(linux, 'linux', context),
-      web: () => _buildOrThrow(web, 'web', context),
     );
   }
 
@@ -44,6 +44,9 @@ abstract class CoreAdaptiveScreen extends StatelessWidget {
   /// Widget for iOS platform.
   Widget ios(BuildContext context);
 
+  /// Widget for web (optional).
+  Widget web(BuildContext context) ;
+
   /// Widget for Windows platform (optional).
   Widget? windows(BuildContext context) => null;
 
@@ -56,6 +59,4 @@ abstract class CoreAdaptiveScreen extends StatelessWidget {
   /// Widget for Linux platform (optional).
   Widget? linux(BuildContext context) => null;
 
-  /// Widget for web (optional).
-  Widget? web(BuildContext context) => null;
 }
