@@ -10,8 +10,8 @@ class LightTheme with SubThemeData {
   ThemeData buildLightTheme() {
     final ThemeData systemLightTheme = ThemeData.light();
     return systemLightTheme.copyWith(
-      useMaterial3: true,
-      textTheme: getTextTheme(AppColors.black),
+      brightness: Brightness.light,
+      textTheme: getTextTheme(AppColors.textColor),
       elevatedButtonTheme: getElevatedButtonTheme(),
       cardTheme: getCardTheme(AppColors.black),
       appBarTheme: getAppBarTheme(AppColors.black),
@@ -23,7 +23,7 @@ class LightTheme with SubThemeData {
       visualDensity: VisualDensity.adaptivePlatformDensity,
       dropdownMenuTheme: DropdownMenuThemeData(
         inputDecorationTheme: getInputDecorationTheme(AppColors.black),
-        textStyle: appTextStyle.bodyMedium14,
+        textStyle: appTextStyle.bodyMedium20w4,
         menuStyle: getMenuStyle(),
       ),
       scaffoldBackgroundColor: AppColors.white,

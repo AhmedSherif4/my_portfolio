@@ -64,11 +64,11 @@ SnackBar _messageSnackBarWithAction(
               children: [
                 Text(
                   _title(state),
-                  style: const AppTextStyle().white.bodyMedium14,
+                  style: const AppTextStyle().white.bodyMedium20w4,
                 ),
                 Text(
                   description,
-                  style: const AppTextStyle().white.bodySmall12,
+                  style: const AppTextStyle().white.bodySmall18w4,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -79,7 +79,7 @@ SnackBar _messageSnackBarWithAction(
                       icon: Icon(actionIcon, color: Colors.white),
                       label: Text(
                         actionLabel,
-                        style: const AppTextStyle().white.bodySmall12,
+                        style: const AppTextStyle().white.bodySmall18w4,
                         overflow: TextOverflow.ellipsis,
                       )),
                 ),
@@ -113,7 +113,7 @@ SnackBar _messageSnackBarWithAction(
 SnackBar _messageSnackBar(
     {required String description,
     required ToastStates state,
-    double? bottomPadding ,
+    double? bottomPadding,
     required BuildContext context}) {
   return SnackBar(
     showCloseIcon: true,
@@ -134,15 +134,21 @@ SnackBar _messageSnackBar(
               children: [
                 Text(
                   _title(state),
-                  style: AppReference.themeData.textTheme.bodyMedium!.copyWith(
-                    color: Colors.white,
-                  ),
+                  style: AppReference.themeData(context)
+                      .textTheme
+                      .bodyMedium!
+                      .copyWith(
+                        color: Colors.white,
+                      ),
                 ),
                 Text(
                   description,
-                  style: AppReference.themeData.textTheme.bodySmall!.copyWith(
-                    color: Colors.white,
-                  ),
+                  style: AppReference.themeData(context)
+                      .textTheme
+                      .bodySmall!
+                      .copyWith(
+                        color: Colors.white,
+                      ),
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -215,7 +221,6 @@ String _title(ToastStates state) {
       return "مرحبا!";
   }
 }
-
 
 Color _chooseToastPrimaryColor(ToastStates state) {
   switch (state) {

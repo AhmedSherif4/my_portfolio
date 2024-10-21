@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/core/enum/enum_generation.dart';
 import 'package:my_portfolio/core/services/services_locator.dart';
 
+import '../config/resources/theme_mode/color_control.dart';
 import '../core/base_widgets/snackbar_widget.dart';
 import '../core/shared_models/user/data/user_local_data_source/user_local_data_source.dart';
 
@@ -20,36 +21,32 @@ class AppReference {
   static bool deviceIsTablet = false;
   static bool deviceIsWeb = kIsWeb;
   static late bool deviceIsIos;
-  static late ThemeData themeData;
+
+  static ThemeData themeData(context) => Theme.of(context);
+
+  static ColorControl colorControl(context) =>
+      themeData(context).brightness == Brightness.dark
+          ? DarkColorControl()
+          : LightColorControl();
   static final deviceInfoPlugin = DeviceInfoPlugin();
   static final GlobalKey<NavigatorState> _navigatorKey =
-  GlobalKey<NavigatorState>();
+      GlobalKey<NavigatorState>();
 
   static GlobalKey<NavigatorState> get navigatorKey => _navigatorKey;
 
   static Orientation currentOrientation(context) =>
-      MediaQuery
-          .of(context)
-          .orientation;
+      MediaQuery.of(context).orientation;
 
   static bool isPortrait(context) =>
-      MediaQuery
-          .of(context)
-          .orientation == Orientation.portrait;
+      MediaQuery.of(context).orientation == Orientation.portrait;
 
-  static double deviceHeight(context) =>
-      MediaQuery
-          .sizeOf(context)
-          .height;
+  static double deviceHeight(context) => MediaQuery.sizeOf(context).height;
 
-  static double deviceWidth(context) =>
-      MediaQuery
-          .sizeOf(context)
-          .width;
+  static double deviceWidth(context) => MediaQuery.sizeOf(context).width;
 
   static void getDeviceInfo(BuildContext context) {
     final sizeMediaQuery = MediaQuery.sizeOf(context);
-    themeData = Theme.of(context);
+    // themeData = Theme.of(context);
     if (!deviceIsWeb) {
       deviceIsAndroid = Platform.isAndroid;
       deviceIsIos = Platform.isIOS;
@@ -95,7 +92,6 @@ class AppReference {
       return 'false';
     }
   }
-
 
   static Future<bool> isHuaweiDevice() async {
     if (AppReference.deviceIsAndroid) {
@@ -167,5 +163,3 @@ class AppReference {
     return RegExp(r'[\u0610-\u061A\u064B-\u065F]').hasMatch(input);
   }
 }
-
-

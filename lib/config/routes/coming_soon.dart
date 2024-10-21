@@ -31,7 +31,7 @@ class _ComingSoonState extends State<ComingSoon> {
         child: Center(
           child: Text(
             'Comming Soon',
-            style: AppTextStyle.titleSmall18,
+            style: const AppTextStyle().titleSmall24w5,
           ),
         ),
       ),

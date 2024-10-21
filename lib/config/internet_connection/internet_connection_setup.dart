@@ -13,6 +13,7 @@ import '../resources/app_values.dart';
 class ConnectivityController {
   final Connectivity _connectivity = Connectivity();
   ValueNotifier<bool> isConnected = ValueNotifier(false);
+
   Future<void> init() async {
     List<ConnectivityResult> result = await _connectivity.checkConnectivity();
     isInternetConnected(result);
@@ -37,12 +38,14 @@ class ConnectivityController {
 
 class ConnectionAlert extends StatefulWidget {
   const ConnectionAlert({super.key});
+
   @override
   State<ConnectionAlert> createState() => _ConnectionAlertState();
 }
 
 class _ConnectionAlertState extends State<ConnectionAlert> {
   ConnectivityController connectivityController = ConnectivityController();
+
   @override
   void initState() {
     connectivityController.init();
@@ -65,12 +68,14 @@ class _ConnectionAlertState extends State<ConnectionAlert> {
 
 class SplashConnectionAlert extends StatefulWidget {
   const SplashConnectionAlert({super.key});
+
   @override
   State<SplashConnectionAlert> createState() => _SplashConnectionAlertState();
 }
 
 class _SplashConnectionAlertState extends State<SplashConnectionAlert> {
   ConnectivityController connectivityController = ConnectivityController();
+
   @override
   void initState() {
     connectivityController._connectivity.onConnectivityChanged
@@ -120,7 +125,7 @@ class _NetworkAlertBar extends StatelessWidget {
                 "لا يوجد اتصال بالانترنت",
                 textDirection: ui.TextDirection.rtl,
                 style: const AppTextStyle()
-                    .bodyMedium14
+                    .bodyMedium20w4Extension(context)
                     .copyWith(color: AppColors.white),
               ),
             ],

@@ -12,10 +12,9 @@ enum DotType { square, circle, diamond, icon }
 
 void showLoadingDialog(BuildContext context) => showDialog<void>(
     context: context,
-   barrierDismissible: false,
-    builder: (BuildContext context) => const PopScope(
-        canPop: false,
-        child: LoadingWidget()));
+    barrierDismissible: false,
+    builder: (BuildContext context) =>
+        const PopScope(canPop: false, child: LoadingWidget()));
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({super.key});
@@ -25,10 +24,12 @@ class LoadingWidget extends StatelessWidget {
     return Center(
       child: Container(
         width: 100.responsiveWidth,
-        height: AppReference.deviceWidth(context)*0.14.responsiveHeight,
-        padding: EdgeInsets.all(AppReference.deviceIsTablet?AppPadding.p10.responsiveSize:AppPadding.p20.responsiveSize),
+        height: AppReference.deviceWidth(context) * 0.14.responsiveHeight,
+        padding: EdgeInsets.all(AppReference.deviceIsTablet
+            ? AppPadding.p10.responsiveSize
+            : AppPadding.p20.responsiveSize),
         decoration: BoxDecoration(
-            color: AppColors.primaryColor,
+            color: AppColors.primaryColor(context),
             borderRadius: BorderRadius.circular(
                 AppConstants.appBorderRadiusR10.responsiveSize)),
         child: const PopScope(
@@ -97,8 +98,7 @@ class _ColorLoader5State extends State<ColorLoader5>
     );
 
     controller.addListener(() {
-      setState(() {
-      });
+      setState(() {});
     });
 
     controller.repeat();

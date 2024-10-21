@@ -1,5 +1,5 @@
 abstract class AppStrings {
-  static const String appName = "appName";
+  static const String appName = "app_name";
 
   static const String somethingWrongWhileDownloading =
       "somethingWrongWhileDownloading";

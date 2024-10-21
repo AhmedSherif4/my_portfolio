@@ -1,6 +1,9 @@
 import 'dart:convert';
+
 import 'package:dio/dio.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:injectable/injectable.dart';
+
 import '../../core/api/api_consumer.dart';
 import '../../core/api/network_info.dart';
 import '../../core/exceptions/exceptions.dart';
@@ -51,7 +54,7 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
     required Object body,
   }) async {
     if (!await networkInfo.isConnected) {
-      throw const NoInternetConnectionException();
+      throw NoInternetConnectionException();
     }
     final response = await _checkStatusCode(await apiConsumer.post(
       url,
@@ -67,7 +70,7 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
     required Object body,
   }) async {
     if (!await networkInfo.isConnected) {
-      throw const NoInternetConnectionException();
+      throw NoInternetConnectionException();
     }
     final response = await _checkStatusCode(await apiConsumer.publicPost(
       url,
@@ -84,7 +87,7 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
     ProgressCallback? onReceiveProgress,
   }) async {
     if (!await networkInfo.isConnected) {
-      throw const NoInternetConnectionException();
+      throw NoInternetConnectionException();
     }
     final response = await apiConsumer.download(
       url,
@@ -92,10 +95,10 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
       onReceiveProgress: onReceiveProgress,
     );
     if (response.statusCode != 200) {
-      throw const ServerException(
-          message: AppStrings.somethingWrongWhileDownloading);
+      throw ServerException(
+          message: AppStrings.somethingWrongWhileDownloading.tr());
     }
-    return AppStrings.downloadedSuccessfully;
+    return AppStrings.downloadedSuccessfully.tr();
   }
 
   @override
@@ -104,7 +107,7 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
     Options? options,
   }) async {
     if (!await networkInfo.isConnected) {
-      throw const NoInternetConnectionException();
+      throw NoInternetConnectionException();
     }
     return await _checkStringStatusCode(
         await apiConsumer.get(url, options: options));
@@ -115,13 +118,13 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
     if (response.statusCode != 200) {
       throw ServerException(
         message: jsonDecode(response.data)['message'] ??
-            AppStrings.someThingWentWrong,
+            AppStrings.someThingWentWrong.tr(),
       );
     }
     final json = jsonDecode(response.data);
     if (!json['status']) {
       throw ServerException(
-        message: json['message'] ?? AppStrings.someThingWentWrong,
+        message: json['message'] ?? AppStrings.someThingWentWrong.tr(),
       );
     }
     return json;
@@ -131,14 +134,14 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
     if (response.statusCode != 200) {
       throw ServerException(
         message: jsonDecode(response.data)['message'] ??
-            AppStrings.someThingWentWrong,
+            AppStrings.someThingWentWrong.tr(),
       );
     }
     final json = jsonDecode(response.data);
 
     if (json['status'] != 'OK') {
       throw ServerException(
-        message: json['message'] ?? AppStrings.someThingWentWrong,
+        message: json['message'] ?? AppStrings.someThingWentWrong.tr(),
       );
     }
     return json;
@@ -151,7 +154,7 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
     Options? options,
   }) async {
     if (!await networkInfo.isConnected) {
-      throw const NoInternetConnectionException();
+      throw NoInternetConnectionException();
     }
     final response = await _checkPaymentStatusCode(await apiConsumer.post(
       url,
@@ -166,13 +169,14 @@ class BaseRemoteDataSourceImpl implements BaseRemoteDataSource {
     if (response.statusCode != 200) {
       throw ServerException(
         message: jsonDecode(response.data)['result']['description'] ??
-            AppStrings.someThingWentWrong,
+            AppStrings.someThingWentWrong.tr(),
       );
     }
     final json = jsonDecode(response.data);
     if (json['id'] == null) {
       throw ServerException(
-        message: json['result']['description'] ?? AppStrings.someThingWentWrong,
+        message:
+            json['result']['description'] ?? AppStrings.someThingWentWrong.tr(),
       );
     }
     return json;

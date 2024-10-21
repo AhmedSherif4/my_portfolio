@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_portfolio/my_app/app_settings/app_settings_cubit.dart';
 
 abstract class AppColors {
+  static bool isDarkMode(BuildContext context) =>
+      context.watch<AppSettingsCubit>().getThemeMode();
+
   static const Color black = Color(0xFF000000);
   static const Color gray = Color(0xFF9E9E9E);
   static const Color red = Color(0xFFE57373);
   static const Color blue = Color(0xFF64B5F6);
 
-  ///primary color
-  static const Color primaryColor = Color(0xFF1B3D6F);
-  static const Color primaryColor2 = Color(0xFFF47827);
-  static const Color primary2 = Color(0xFF67BBE2);
-  static const Color primary3 = Color(0xFF248CE0);
-  static const Color quranColor = Color(0xffDFBA41);
+  ///Light colors Theme
+  static Color primaryColor(BuildContext context) =>
+      isDarkMode(context) ? const Color(0xFF001F3F) : const Color(0xFFFFEAC5);
 
-  ///secondary color
-  static const Color secondaryColor = Color(0xFF382673);
-  static const Color secondaryColor2 = Color(0xFF5C701B);
-  static const Color secondaryColor3 = Color(0xFF7193C5);
-  static const Color secondaryColor4 = Color(0xFF58340D);
+  static Color primaryColor2(BuildContext context) =>
+      isDarkMode(context) ? const Color(0xFF3A6D8C) : const Color(0xFFFFDBB5);
+
+  static Color primaryColor3(BuildContext context) =>
+      isDarkMode(context) ? const Color(0xFF6A9AB0) : const Color(0xFF6C4E31);
+
+  static Color primaryColor4(BuildContext context) =>
+      isDarkMode(context) ? const Color(0xFFEAD8B1) : const Color(0xFF603F26);
 
   ///background color
-  static const Color backgroundColor = Color(0xFFFAFAFA);
+  static Color backgroundColor(BuildContext context) =>
+      isDarkMode(context) ? Color(0xFF001F3F) : Color(0xFFFFEAC5);
 
   ///fields color
   static const Color white = Color(0xFFFFFFFF);
@@ -32,6 +38,9 @@ abstract class AppColors {
   static const Color textColor4 = Color(0xFF797676);
   static const Color textColor5 = Color(0xFFACACAC);
   static const Color textColor6 = Color(0xFFEEEEEE);
+
+  static Color themeTextColor(context) =>
+      isDarkMode(context) ? textColor6 : textColor;
 
   ///situation color
   static const Color failColor = Color(0xFFB3261E);

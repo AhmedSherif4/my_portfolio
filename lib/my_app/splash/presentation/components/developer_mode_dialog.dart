@@ -2,6 +2,7 @@ part of '../../splash_screen.dart';
 
 class DeveloperModeDialog extends StatelessWidget {
   final Function(bool) onTap;
+
   const DeveloperModeDialog({super.key, required this.onTap});
 
   @override
@@ -13,7 +14,7 @@ class DeveloperModeDialog extends StatelessWidget {
         message: AppStrings.developerModeCheckBody,
         imagePath: AppIconsAssets.sUpdate,
         withImage: false,
-        titleColor: AppColors.primaryColor,
+        titleColor: AppColors.primaryColor(context),
         confirm: onTap,
         isUpdateDialog: false,
         isSecurityDialog: true,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:my_portfolio/config/resources/app_shadow.dart';
 import 'package:my_portfolio/config/responsive/responsive_extensions.dart';
 
@@ -48,15 +47,17 @@ abstract class AppConstants {
   static const Duration durationOfConfetti = Duration(milliseconds: 100);
   static const Duration animationTime = Duration(milliseconds: 700);
   static TextStyle quranStyle =
-      const AppTextStyle().s16.w200.quranFont.titleMedium20;
+      const AppTextStyle().s16.w200.roboto.titleMedium26w5;
+
   static TextDirection arabicDirection(text) =>
       AppReference.detectStringType(text) == StringType.english
           ? TextDirection.ltr
           : TextDirection.rtl;
+
   static String quranFamily(text) =>
       AppReference.detectStringType(text) == StringType.quranicArabic
-          ? AppTextStyle.quranFont
-          : AppTextStyle.balooBhaijaan2;
+          ? AppTextStyle.roboto
+          : AppTextStyle.playfairDisplay;
 
   static BoxDecoration containerDecoration({
     Color? backgroundColor,

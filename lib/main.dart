@@ -5,7 +5,7 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:hive_flutter/adapters.dart';
 
 import 'config/bloc/bloc_observer.dart';
-import 'config/resources/localization_logic/data/models/localization_model.dart';
+import 'config/resources/localization_logic/localization_model.dart';
 import 'core/services/services_locator.dart';
 import 'my_app/app_requirement_setup.dart';
 import 'my_app/my_app.dart';

@@ -109,29 +109,30 @@ class _SplashScreenState extends State<SplashScreen>
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.primaryColor.withOpacity(.2),
+                          color:
+                              AppColors.primaryColor(context).withOpacity(.2),
                           // blurRadius: 100,
                           // spreadRadius: 10,
                         ),
                       ],
-                      color: AppColors.primaryColor,
+                      color: AppColors.primaryColor(context),
                       shape: BoxShape.circle,
                     ),
                     child: Center(
                       child: Container(
                         width: AppReference.deviceWidth(context),
                         height: AppReference.deviceHeight(context),
-                        decoration: const BoxDecoration(
-                            color: AppColors.primaryColor,
+                        decoration: BoxDecoration(
+                            color: AppColors.primaryColor(context),
                             shape: BoxShape.circle),
                         child: AnimatedBuilder(
                           animation: scaleAnimation,
                           builder: (_, child) => Transform.scale(
                             scale: scaleAnimation.value,
                             child: Container(
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: AppColors.primaryColor,
+                                color: AppColors.primaryColor(context),
                               ),
                             ),
                           ),

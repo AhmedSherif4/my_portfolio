@@ -10,8 +10,8 @@ class DarkTheme with SubThemeData {
   ThemeData buildDarkTheme() {
     final ThemeData systemDarkTheme = ThemeData.dark();
     return systemDarkTheme.copyWith(
-      useMaterial3: true,
-      textTheme: getTextTheme(AppColors.white),
+      brightness: Brightness.dark,
+      textTheme: getTextTheme(AppColors.textColor6),
       elevatedButtonTheme: getElevatedButtonTheme(),
       cardTheme: getCardTheme(AppColors.white),
       appBarTheme: getAppBarTheme(AppColors.white),
@@ -23,7 +23,7 @@ class DarkTheme with SubThemeData {
       visualDensity: VisualDensity.adaptivePlatformDensity,
       dropdownMenuTheme: DropdownMenuThemeData(
         inputDecorationTheme: getInputDecorationTheme(AppColors.white),
-        textStyle: appTextStyle.bodyMedium14,
+        textStyle: appTextStyle.bodyMedium20w4,
         menuStyle: getMenuStyle(),
       ),
       scaffoldBackgroundColor: AppColors.blue,

@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../resources/localization_logic/data/models/localization_model.dart';
+import '../resources/localization_logic/localization_model.dart';
 
 const String preferenceKeyLanguage = 'preferenceKeyLanguage';
 const String preferenceKeyDarkThemeModeOn = 'preferenceKeyDarkThemeModeOn';

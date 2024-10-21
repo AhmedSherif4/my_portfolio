@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 import 'package:my_portfolio/config/resources/app_strings.dart';
 
@@ -11,6 +12,6 @@ class ServerException extends Equatable implements Exception {
 }
 
 class NoInternetConnectionException extends ServerException {
-  const NoInternetConnectionException()
-      : super(message: AppStrings.noInternetConnection);
+  NoInternetConnectionException()
+      : super(message: AppStrings.noInternetConnection.tr());
 }

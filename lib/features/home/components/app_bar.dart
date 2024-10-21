@@ -1,8 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:my_portfolio/config/resources/app_colors.dart';
+import 'package:my_portfolio/config/resources/app_strings.dart';
 import 'package:my_portfolio/my_app/app_reference.dart';
 
+import '../../../config/resources/app_text_style.dart';
 import '../../../my_app/app_settings/app_settings_cubit.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
@@ -13,7 +17,7 @@ class CustomAppBarWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: AppReference.deviceHeight(context) * 0.1,
-      color: Colors.transparent,
+      color: AppColors.primaryColor2(context),
       child: Row(
         children: [
           BlocBuilder<AppSettingsCubit, AppSettingsState>(
@@ -33,7 +37,11 @@ class CustomAppBarWidget extends StatelessWidget {
                   onChanged: (isDark) {
                     cubit.setThemeMode(isDark);
                   },
-                )
+                ),
+                Text(
+                  AppStrings.downloadedSuccessfully.tr(),
+                  style: const AppTextStyle().bodyMedium20w4,
+                ),
               ],
             );
           }),

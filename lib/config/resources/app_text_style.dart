@@ -16,106 +16,127 @@ class AppTextStyle {
     this.fontSize,
   });
 
-  static const String balooBhaijaan2 = 'BalooBhaijaan2';
-  static const String quranFont = 'QuranFont';
+  static const String playfairDisplay = 'Playfair_Display';
+  static const String roboto = 'Roboto';
 
-  static TextStyle cacheDisplayLarge32(double fontSize) => TextStyle(
-      color: AppColors.textColor,
-      fontFamily: balooBhaijaan2,
-      fontWeight: FontWeight.w700,
-      fontSize: fontSize);
-
-  static get displayLarge32 => cacheDisplayLarge32(32.responsiveFontSize);
-
-  static TextStyle cacheDisplayMedium30(double fontSize) => TextStyle(
-        color: AppColors.textColor,
-        fontFamily: balooBhaijaan2,
-        fontWeight: FontWeight.w700,
-        fontSize: fontSize,
-      );
-
-  static get displayMedium30 => cacheDisplayMedium30(30.responsiveFontSize);
-
-  static TextStyle cacheDisplaySmall28(double fontSize) => TextStyle(
-        color: AppColors.textColor,
-        fontFamily: balooBhaijaan2,
-        fontWeight: FontWeight.w700,
-        fontSize: fontSize,
-      );
-
-  static get displaySmall28 => cacheDisplaySmall28(28.responsiveFontSize);
-
-  static TextStyle cacheTitleLarge22(double fontSize) => TextStyle(
-        color: AppColors.textColor,
-        fontFamily: balooBhaijaan2,
-        fontWeight: FontWeight.w600,
-        fontSize: fontSize,
-      );
-
-  static get titleLarge22 => cacheTitleLarge22(22.responsiveFontSize);
-
-  static TextStyle cacheTitleMedium20(double fontSize) => TextStyle(
-        color: AppColors.textColor,
-        fontFamily: balooBhaijaan2,
-        fontWeight: FontWeight.w600,
-        fontSize: fontSize,
-      );
-
-  static get titleMedium20 => cacheTitleMedium20(20.responsiveFontSize);
-
-  static TextStyle cacheTitleSmall18(double fontSize) => TextStyle(
-        color: AppColors.textColor,
-        fontFamily: balooBhaijaan2,
-        fontWeight: FontWeight.w600,
-        fontSize: fontSize,
-      );
-
-  static get titleSmall18 => cacheTitleSmall18(18.responsiveFontSize);
-
-  static TextStyle cacheBodyLarge16(double fontSize) => TextStyle(
-        color: AppColors.textColor,
-        fontFamily: balooBhaijaan2,
+  TextStyle get displayLarge40w4 => TextStyle(
+        color: color,
+        fontFamily: roboto,
         fontWeight: FontWeight.w400,
-        fontSize: fontSize,
+        fontSize: 40.responsiveFontSize,
       );
 
-  static get bodyLarge16 => cacheBodyLarge16(16.responsiveFontSize);
-
-  static TextStyle cacheBodyMedium14(double fontSize) => TextStyle(
-        color: AppColors.textColor,
-        fontFamily: balooBhaijaan2,
+  TextStyle get displayMedium38w4 => TextStyle(
+        color: color,
+        fontFamily: roboto,
         fontWeight: FontWeight.w400,
-        fontSize: fontSize,
+        fontSize: 38.responsiveFontSize,
       );
 
-  static get bodyMedium14 => cacheBodyMedium14(14.responsiveFontSize);
-
-  static TextStyle cacheBodySmall12(double fontSize) => TextStyle(
-        color: AppColors.textColor,
-        fontFamily: balooBhaijaan2,
+  TextStyle get displaySmall36w4 => TextStyle(
+        color: color,
+        fontFamily: roboto,
         fontWeight: FontWeight.w400,
-        fontSize: fontSize,
+        fontSize: 36.responsiveFontSize,
       );
 
-  static get bodySmall12 => cacheBodySmall12(12.responsiveFontSize);
-
-  static TextStyle cacheErrorTextStyle12(double fontSize) => TextStyle(
-        color: AppColors.failColor,
-        fontFamily: balooBhaijaan2,
+  TextStyle get headlineLarge34w4 => TextStyle(
+        color: color,
+        fontFamily: roboto,
         fontWeight: FontWeight.w400,
-        fontSize: fontSize,
+        fontSize: 34.responsiveFontSize,
       );
 
-  static get errorTextStyle12 => cacheErrorTextStyle12(12.responsiveFontSize);
-
-  static TextStyle cacheHintTextStyle14(double fontSize) => TextStyle(
-        color: AppColors.textColor,
-        fontFamily: balooBhaijaan2,
+  TextStyle get headlineMedium32w4 => TextStyle(
+        color: color,
+        fontFamily: roboto,
         fontWeight: FontWeight.w400,
-        fontSize: fontSize,
+        fontSize: 32.responsiveFontSize,
       );
 
-  static get hintTextStyle14 => cacheHintTextStyle14(14.responsiveFontSize);
+  TextStyle get headlineSmall30w4 => TextStyle(
+        color: color,
+        fontFamily: roboto,
+        fontWeight: FontWeight.w400,
+        fontSize: 30.responsiveFontSize,
+      );
+
+  TextStyle get titleLarge28w4 => TextStyle(
+        color: color,
+        fontFamily: roboto,
+        fontWeight: FontWeight.w400,
+        fontSize: 28.responsiveFontSize,
+      );
+
+  TextStyle get titleMedium26w5 => TextStyle(
+        color: color,
+        fontFamily: roboto,
+        fontWeight: FontWeight.w500,
+        fontSize: 26.responsiveFontSize,
+      );
+
+  TextStyle get titleSmall24w5 => TextStyle(
+        color: color,
+        fontFamily: roboto,
+        fontWeight: FontWeight.w500,
+        fontSize: 24.responsiveFontSize,
+      );
+
+  TextStyle get bodyLarge22w4 => TextStyle(
+        color: color,
+        fontFamily: roboto,
+        fontWeight: FontWeight.w400,
+        fontSize: 22.responsiveFontSize,
+      );
+
+  TextStyle get bodyMedium20w4 => TextStyle(
+        color: color,
+        fontFamily: roboto,
+        fontWeight: FontWeight.w400,
+        fontSize: 20.responsiveFontSize,
+      );
+
+  TextStyle get bodySmall18w4 => TextStyle(
+        color: color,
+        fontFamily: roboto,
+        fontWeight: FontWeight.w400,
+        fontSize: 18.responsiveFontSize,
+      );
+
+  TextStyle get labelLarge16w5 => TextStyle(
+        color: color,
+        fontFamily: roboto,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.responsiveFontSize,
+      );
+
+  TextStyle get labelMedium14w5 => TextStyle(
+        color: color,
+        fontFamily: roboto,
+        fontWeight: FontWeight.w500,
+        fontSize: 14.responsiveFontSize,
+      );
+
+  TextStyle get labelSmall12w5 => TextStyle(
+        color: color,
+        fontFamily: roboto,
+        fontWeight: FontWeight.w500,
+        fontSize: 12.responsiveFontSize,
+      );
+
+  TextStyle get errorTextStyle12 => TextStyle(
+        color: AppColors.red,
+        fontFamily: roboto,
+        fontWeight: FontWeight.w500,
+        fontSize: 12.responsiveFontSize,
+      );
+
+  TextStyle get hintTextStyle14 => TextStyle(
+        color: color,
+        fontFamily: roboto,
+        fontWeight: FontWeight.w500,
+        fontSize: 14.responsiveFontSize,
+      );
 
   AppTextStyle copyWith({
     Color? color,
@@ -133,28 +154,38 @@ class AppTextStyle {
 }
 
 extension AppStyleFontFamily on AppTextStyle {
-  AppTextStyle get quranFont => copyWith(fontFamily: AppTextStyle.quranFont);
+  AppTextStyle get roboto => copyWith(fontFamily: AppTextStyle.roboto);
 
-  AppTextStyle get balooBhaijaan2 =>
-      copyWith(fontFamily: AppTextStyle.balooBhaijaan2);
+  AppTextStyle get playfairDisplay =>
+      copyWith(fontFamily: AppTextStyle.playfairDisplay);
 }
 
 extension AppStyleColor on AppTextStyle {
-  AppTextStyle get red => copyWith(color: AppColors.failColor);
+  AppTextStyle get textColor => copyWith(color: AppColors.textColor);
+
+  AppTextStyle get textColor2 => copyWith(color: AppColors.textColor2);
+
+  AppTextStyle get textColor3 => copyWith(color: AppColors.textColor3);
+
+  AppTextStyle get textColor4 => copyWith(color: AppColors.textColor4);
+
+  AppTextStyle get textColor5 => copyWith(color: AppColors.textColor5);
+
+  AppTextStyle get textColor6 => copyWith(color: AppColors.textColor6);
 
   AppTextStyle get black => copyWith(color: AppColors.textColor);
 
-  AppTextStyle get white => copyWith(color: AppColors.white);
+  AppTextStyle get white => copyWith(color: AppColors.textColor6);
 
-  AppTextStyle get blue => copyWith(color: AppColors.primaryColor);
+  AppTextStyle get blue => copyWith(color: AppColors.blue);
 
-  AppTextStyle get orange => copyWith(color: AppColors.secondaryColor4);
+  AppTextStyle get gray => copyWith(color: AppColors.gray);
 
-  AppTextStyle get gray => copyWith(color: AppColors.textColor2);
+  AppTextStyle get failColor => copyWith(color: AppColors.failColor);
 
-  AppTextStyle get secondaryColor => copyWith(color: AppColors.secondaryColor);
+  AppTextStyle get successColor => copyWith(color: AppColors.successColor);
 
-  AppTextStyle get green => copyWith(color: AppColors.successColor);
+  AppTextStyle get warningColor => copyWith(color: AppColors.warningColor);
 }
 
 extension AppStyleFontWeight on AppTextStyle {
@@ -176,76 +207,125 @@ extension AppStyleFontWeight on AppTextStyle {
 }
 
 extension AppStyleFontStyle on AppTextStyle {
-  TextStyle get displayLarge32 =>
-      AppReference.themeData.textTheme.displayLarge!.copyWith(
-        color: color,
-        fontFamily: fontFamily,
-        fontWeight: fontWeight,
-        fontSize: fontSize,
-      );
+  TextStyle displayLarge40w4Extension(context) =>
+      AppReference.themeData(context).textTheme.displayLarge!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
 
-  TextStyle get displayMedium30 =>
-      AppReference.themeData.textTheme.displayMedium!.copyWith(
-        color: color,
-        fontFamily: fontFamily,
-        fontWeight: fontWeight,
-        fontSize: fontSize,
-      );
+  TextStyle displayMedium38w4Extension(context) =>
+      AppReference.themeData(context).textTheme.displayMedium!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
 
-  TextStyle get displaySmall28 =>
-      AppReference.themeData.textTheme.displaySmall!.copyWith(
-        color: color,
-        fontFamily: fontFamily,
-        fontWeight: fontWeight,
-        fontSize: fontSize,
-      );
+  TextStyle displaySmall36w4Extension(context) =>
+      AppReference.themeData(context).textTheme.displaySmall!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
 
-  TextStyle get titleLarge22 => AppTextStyle.titleLarge22.copyWith(
-        color: color,
-        fontFamily: fontFamily,
-        fontWeight: fontWeight,
-        fontSize: fontSize,
-      );
+  TextStyle headlineLarge34w4Extension(context) =>
+      AppReference.themeData(context).textTheme.headlineLarge!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
 
-  TextStyle get titleMedium20 =>
-      AppReference.themeData.textTheme.titleMedium!.copyWith(
-        color: color,
-        fontFamily: fontFamily,
-        fontWeight: fontWeight,
-        fontSize: fontSize,
-      );
+  TextStyle headlineMedium32w4Extension(context) =>
+      AppReference.themeData(context).textTheme.headlineMedium!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
 
-  TextStyle get titleSmall18 =>
-      AppReference.themeData.textTheme.titleSmall!.copyWith(
-        color: color,
-        fontFamily: fontFamily,
-        fontWeight: fontWeight,
-        fontSize: fontSize,
-      );
+  TextStyle headlineSmall30w4Extension(context) =>
+      AppReference.themeData(context).textTheme.headlineSmall!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
 
-  TextStyle get bodyLarge16 =>
-      AppReference.themeData.textTheme.bodyLarge!.copyWith(
-        color: color,
-        fontFamily: fontFamily,
-        fontWeight: fontWeight,
-        fontSize: fontSize,
-      );
+  TextStyle titleLarge28w4Extension(context) =>
+      AppReference.themeData(context).textTheme.titleLarge!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
 
-  TextStyle get bodyMedium14 =>
-      AppReference.themeData.textTheme.bodyMedium!.copyWith(
-        color: color,
-        fontFamily: fontFamily,
-        fontWeight: fontWeight,
-        fontSize: fontSize,
-      );
+  TextStyle titleMedium26w5Extension(context) =>
+      AppReference.themeData(context).textTheme.titleMedium!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
 
-  TextStyle get bodySmall12 =>
-      AppReference.themeData.textTheme.bodySmall!.copyWith(
-        color: color,
-        fontFamily: fontFamily,
-        fontWeight: fontWeight,
-        fontSize: fontSize,
-      );
+  TextStyle titleSmall24w5Extension(context) =>
+      AppReference.themeData(context).textTheme.titleSmall!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
+
+  TextStyle bodyLarge22w4Extension(context) =>
+      AppReference.themeData(context).textTheme.bodyLarge!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
+
+  TextStyle bodyMedium20w4Extension(context) =>
+      AppReference.themeData(context).textTheme.bodyMedium!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
+
+  TextStyle bodySmall18w4Extension(context) =>
+      AppReference.themeData(context).textTheme.bodySmall!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
+
+  TextStyle labelLarge16w5Extension(context) =>
+      AppReference.themeData(context).textTheme.labelLarge!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
+
+  TextStyle labelMedium14w5Extension(context) =>
+      AppReference.themeData(context).textTheme.labelMedium!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
+
+  TextStyle labelSmall12w5Extension(context) =>
+      AppReference.themeData(context).textTheme.labelSmall!.copyWith(
+            color: color,
+            fontFamily: fontFamily,
+            fontWeight: fontWeight,
+            fontSize: fontSize?.responsiveFontSize,
+          );
 }
 
 extension AppStyleFontSize on AppTextStyle {
@@ -398,50 +478,50 @@ abstract class AppFontWeight {
 }
 
 abstract class AppFontSize {
-  static const double sp5 = 5;
-  static const double sp6 = 6;
-  static const double sp7 = 7;
-  static const double sp8 = 8;
-  static const double sp9 = 9;
-  static const double sp10 = 10;
-  static const double sp11 = 11;
-  static const double sp12 = 12;
-  static const double sp13 = 13;
-  static const double sp14 = 14;
-  static const double sp15 = 15;
-  static const double sp16 = 16;
-  static const double sp17 = 17;
-  static const double sp18 = 18;
-  static const double sp19 = 19;
-  static const double sp20 = 20;
-  static const double sp21 = 21;
-  static const double sp22 = 22;
-  static const double sp23 = 23;
-  static const double sp24 = 24;
-  static const double sp25 = 25;
-  static const double sp26 = 26;
-  static const double sp27 = 27;
-  static const double sp28 = 28;
-  static const double sp29 = 29;
-  static const double sp30 = 30;
-  static const double sp31 = 31;
-  static const double sp32 = 32;
-  static const double sp33 = 33;
-  static const double sp34 = 34;
-  static const double sp35 = 35;
-  static const double sp36 = 36;
-  static const double sp37 = 37;
-  static const double sp38 = 38;
-  static const double sp39 = 39;
-  static const double sp40 = 40;
-  static const double sp41 = 41;
-  static const double sp42 = 42;
-  static const double sp43 = 43;
-  static const double sp44 = 44;
-  static const double sp45 = 45;
-  static const double sp46 = 46;
-  static const double sp47 = 47;
-  static const double sp48 = 48;
-  static const double sp49 = 49;
-  static const double sp50 = 50;
+  static double sp5 = 5.responsiveFontSize;
+  static double sp6 = 6.responsiveFontSize;
+  static double sp7 = 7.responsiveFontSize;
+  static double sp8 = 8.responsiveFontSize;
+  static double sp9 = 9.responsiveFontSize;
+  static double sp10 = 10.responsiveFontSize;
+  static double sp11 = 11.responsiveFontSize;
+  static double sp12 = 12.responsiveFontSize;
+  static double sp13 = 13.responsiveFontSize;
+  static double sp14 = 14.responsiveFontSize;
+  static double sp15 = 15.responsiveFontSize;
+  static double sp16 = 16.responsiveFontSize;
+  static double sp17 = 17.responsiveFontSize;
+  static double sp18 = 18.responsiveFontSize;
+  static double sp19 = 19.responsiveFontSize;
+  static double sp20 = 20.responsiveFontSize;
+  static double sp21 = 21.responsiveFontSize;
+  static double sp22 = 22.responsiveFontSize;
+  static double sp23 = 23.responsiveFontSize;
+  static double sp24 = 24.responsiveFontSize;
+  static double sp25 = 25.responsiveFontSize;
+  static double sp26 = 26.responsiveFontSize;
+  static double sp27 = 27.responsiveFontSize;
+  static double sp28 = 28.responsiveFontSize;
+  static double sp29 = 29.responsiveFontSize;
+  static double sp30 = 30.responsiveFontSize;
+  static double sp31 = 31.responsiveFontSize;
+  static double sp32 = 32.responsiveFontSize;
+  static double sp33 = 33.responsiveFontSize;
+  static double sp34 = 34.responsiveFontSize;
+  static double sp35 = 35.responsiveFontSize;
+  static double sp36 = 36.responsiveFontSize;
+  static double sp37 = 37.responsiveFontSize;
+  static double sp38 = 38.responsiveFontSize;
+  static double sp39 = 39.responsiveFontSize;
+  static double sp40 = 40.responsiveFontSize;
+  static double sp41 = 41.responsiveFontSize;
+  static double sp42 = 42.responsiveFontSize;
+  static double sp43 = 43.responsiveFontSize;
+  static double sp44 = 44.responsiveFontSize;
+  static double sp45 = 45.responsiveFontSize;
+  static double sp46 = 46.responsiveFontSize;
+  static double sp47 = 47.responsiveFontSize;
+  static double sp48 = 48.responsiveFontSize;
+  static double sp49 = 49.responsiveFontSize;
+  static double sp50 = 50.responsiveFontSize;
 }

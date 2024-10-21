@@ -25,10 +25,10 @@ class ThemeManager {
 mixin SubThemeData {
   TextButtonThemeData getTextButtonTheme() => TextButtonThemeData(
         style: ButtonStyle(
-          shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+          shape: WidgetStatePropertyAll(RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(25.responsiveSize)),
           )),
-          backgroundColor: const MaterialStatePropertyAll(AppColors.white),
+          backgroundColor: const WidgetStatePropertyAll(AppColors.white),
         ),
       );
 
@@ -37,10 +37,10 @@ mixin SubThemeData {
     Color color,
   ) =>
       SwitchThemeData(
-        thumbColor: const MaterialStatePropertyAll(AppColors.white),
-        thumbIcon: MaterialStatePropertyAll(Icon(icon)),
-        trackColor: MaterialStatePropertyAll(color),
-        overlayColor: const MaterialStatePropertyAll(AppColors.white),
+        thumbColor: const WidgetStatePropertyAll(AppColors.white),
+        thumbIcon: WidgetStatePropertyAll(Icon(icon)),
+        trackColor: WidgetStatePropertyAll(color),
+        overlayColor: const WidgetStatePropertyAll(AppColors.white),
       );
 
   AppBarTheme getAppBarTheme(Color? colorDependOnTheme) => AppBarTheme(
@@ -81,15 +81,21 @@ mixin SubThemeData {
     AppTextStyle appTextStyle = AppTextStyle(color: colorDependOnTheme);
 
     return TextTheme(
-      displayLarge: appTextStyle.displayLarge32,
-      displayMedium: appTextStyle.displayMedium30,
-      displaySmall: appTextStyle.displaySmall28,
-      titleLarge: appTextStyle.titleLarge22,
-      titleMedium: appTextStyle.titleMedium20,
-      titleSmall: appTextStyle.titleSmall18,
-      bodyLarge: appTextStyle.bodyLarge16,
-      bodyMedium: appTextStyle.bodyMedium14,
-      bodySmall: appTextStyle.bodySmall12,
+      displayLarge: appTextStyle.displayLarge40w4,
+      displayMedium: appTextStyle.displayMedium38w4,
+      displaySmall: appTextStyle.displaySmall36w4,
+      headlineLarge: appTextStyle.headlineLarge34w4,
+      headlineMedium: appTextStyle.headlineMedium32w4,
+      headlineSmall: appTextStyle.headlineSmall30w4,
+      titleLarge: appTextStyle.titleLarge28w4,
+      titleMedium: appTextStyle.titleMedium26w5,
+      titleSmall: appTextStyle.titleSmall24w5,
+      bodyLarge: appTextStyle.bodyLarge22w4,
+      bodyMedium: appTextStyle.bodyMedium20w4,
+      bodySmall: appTextStyle.bodySmall18w4,
+      labelLarge: appTextStyle.labelLarge16w5,
+      labelMedium: appTextStyle.labelMedium14w5,
+      labelSmall: appTextStyle.labelSmall12w5,
     );
   }
 
@@ -126,10 +132,10 @@ mixin SubThemeData {
             AppConstants.textInputFieldBorderRadiusR35,
           ),
         ),
-        borderSide: const BorderSide(
-          color: AppColors.primaryColor,
-          width: 1,
-        ),
+        // borderSide: BorderSide(
+        //   color: AppColors.primaryColor(context),
+        //   width: 1,
+        // ),
       ),
 
       border: OutlineInputBorder(
@@ -138,10 +144,10 @@ mixin SubThemeData {
             AppConstants.textInputFieldBorderRadiusR35,
           ),
         ),
-        borderSide: const BorderSide(
-          color: AppColors.primaryColor,
-          width: 1,
-        ),
+        // borderSide: BorderSide(
+        //   color: AppColors.primaryColor,
+        //   width: 1,
+        // ),
       ),
 
       disabledBorder: OutlineInputBorder(
@@ -150,10 +156,10 @@ mixin SubThemeData {
             AppConstants.textInputFieldBorderRadiusR35,
           ),
         ),
-        borderSide: const BorderSide(
-          color: AppColors.primaryColor,
-          width: 1,
-        ),
+        // borderSide: BorderSide(
+        //   color: AppColors.primaryColor,
+        //   width: 1,
+        // ),
       ),
 
       // error border style
