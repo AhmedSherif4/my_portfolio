@@ -13,6 +13,8 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:internet_connection_checker/internet_connection_checker.dart'
     as _i973;
+import 'package:my_portfolio/config/base_local_data_source/app_preferences.dart'
+    as _i136;
 import 'package:my_portfolio/config/base_local_data_source/base_local_data_source.dart'
     as _i603;
 import 'package:my_portfolio/config/base_remote_data_source/base_remote_data_source.dart'
@@ -21,8 +23,6 @@ import 'package:my_portfolio/config/base_repository/base_repository.dart'
     as _i318;
 import 'package:my_portfolio/config/notification/notification_setup.dart'
     as _i465;
-import 'package:my_portfolio/config/resources/localization_logic/presentation/localization_view_model/localization_bloc.dart'
-    as _i979;
 import 'package:my_portfolio/config/storages/secure_storage.dart' as _i170;
 import 'package:my_portfolio/core/api/api_consumer.dart' as _i569;
 import 'package:my_portfolio/core/api/dio_consumer.dart' as _i259;
@@ -33,23 +33,29 @@ import 'package:my_portfolio/core/shared_models/user/data/user_local_data_source
     as _i608;
 import 'package:my_portfolio/core/shared_widget/image_pick/image_pick_view_model/image_pick_bloc.dart'
     as _i183;
+import 'package:my_portfolio/my_app/app_settings/app_settings_cubit.dart'
+    as _i673;
 import 'package:my_portfolio/my_app/global/global_view_model/global_bloc.dart'
     as _i436;
 import 'package:my_portfolio/my_app/splash/splash_screen.dart' as _i640;
+import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
-  _i174.GetIt init({
+  Future<_i174.GetIt> init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
-  }) {
+  }) async {
     final gh = _i526.GetItHelper(
       this,
       environment,
       environmentFilter,
     );
     final injectableModule = _$InjectableModule();
-    gh.factory<_i979.LanguageBloc>(() => _i979.LanguageBloc());
+    await gh.factoryAsync<_i460.SharedPreferences>(
+      () => injectableModule.sharedPreferences,
+      preResolve: true,
+    );
     gh.factory<_i183.ImagePickBloc>(() => _i183.ImagePickBloc());
     gh.factory<_i436.GlobalBloc>(() => _i436.GlobalBloc());
     gh.factory<_i640.SplashBloc>(() => _i640.SplashBloc());
@@ -65,6 +71,8 @@ extension GetItInjectableX on _i174.GetIt {
         _i608.UserLocalDataSourceImpl(
             baseLocalDataSource: gh<_i603.BaseLocalDataSource>()));
     gh.lazySingleton<_i318.BaseRepository>(() => _i318.BaseRepositoryImpl());
+    gh.lazySingleton<_i136.AppPreferences>(
+        () => _i136.AppPreferences(gh<_i460.SharedPreferences>()));
     gh.lazySingleton<_i170.BaseAppSecurityData>(() => _i170.AppSecurityData(
         localDataSource: gh<_i603.BaseLocalDataSource>()));
     gh.lazySingleton<_i569.ApiConsumer>(
@@ -74,6 +82,8 @@ extension GetItInjectableX on _i174.GetIt {
               apiConsumer: gh<_i569.ApiConsumer>(),
               networkInfo: gh<_i494.NetworkInfo>(),
             ));
+    gh.factory<_i673.AppSettingsCubit>(
+        () => _i673.AppSettingsCubit(gh<_i136.AppPreferences>()));
     gh.lazySingleton<_i465.NotificationSetup>(
         () => _i465.NotificationSetup(apiConsumer: gh<_i569.ApiConsumer>()));
     return this;

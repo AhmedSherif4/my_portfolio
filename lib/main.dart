@@ -1,8 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:hive_flutter/adapters.dart';
 
 import 'config/bloc/bloc_observer.dart';
+import 'config/resources/localization_logic/data/models/localization_model.dart';
 import 'core/services/services_locator.dart';
 import 'my_app/app_requirement_setup.dart';
 import 'my_app/my_app.dart';
@@ -14,6 +17,7 @@ import 'my_app/my_app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   await Hive.initFlutter();
   AppRequirementSetup.registerHiveAdapter();
   //! for SSL/TLS connections (Secure Sockets Layer/Transport Layer Security)
@@ -24,7 +28,17 @@ Future<void> main() async {
 
   configureDependencies();
 
-  runApp(MyApp());
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [arabicLocale, englishLocale],
+      path: assetPathLocalization,
+      // phoenix for restart app when we change the language
+      //! for Localization
+      child: Phoenix(
+        child: MyApp(),
+      ),
+    ),
+  );
   Bloc.observer = MyBlocObserver();
 }
 

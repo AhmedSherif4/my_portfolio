@@ -1,20 +1,23 @@
 import 'dart:ui';
+//todo: for Localization
 
-enum Language {
-  // english(
-  //   Locale('en', 'US'),
-  //   'English',
-  // ),
-  arabic(
-    Locale('ar', 'SA'),
-    'Arabic',
-  );
+// على اساس ملفات اللغة حطينا القيم
+// list of languages that we have
+const Locale arabicLocale = Locale('ar', 'EG');
+const Locale englishLocale = Locale('en', 'US');
 
-  const Language(
-      this.value,
-      this.text,
-      );
+// path the file for languages
+const String assetPathLocalization = 'assets/translations';
 
-  final Locale value;
-  final String text;
+enum LanguageType { english, arabic }
+
+extension LanguageTypeExtension on LanguageType {
+  String getValue() {
+    switch (this) {
+      case LanguageType.english:
+        return 'en';
+      case LanguageType.arabic:
+        return 'ar';
+    }
+  }
 }

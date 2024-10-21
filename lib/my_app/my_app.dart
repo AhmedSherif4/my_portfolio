@@ -1,9 +1,10 @@
 import 'dart:ui' as ui;
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:my_portfolio/config/base_local_data_source/app_preferences.dart';
 import 'package:my_portfolio/config/resources/app_strings.dart';
 import 'package:my_portfolio/config/resources/theme/light_theme.dart';
 import 'package:my_portfolio/config/responsive/responsive.dart';
@@ -11,10 +12,9 @@ import 'package:my_portfolio/core/services/services_locator.dart';
 import 'package:my_portfolio/my_app/deep_link.dart';
 
 import '../config/adaptive/platform_builder.dart';
-import '../config/resources/localization_logic/presentation/localization_view_model/localization_bloc.dart';
-import '../config/resources/localization_logic/presentation/localization_view_model/localization_state.dart';
 import '../config/routes/routes_generator.dart';
 import '../config/routes/routes_names.dart';
+import 'app_settings/app_settings_cubit.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp._internal();
@@ -44,7 +44,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   void didChangeDependencies() async {
     ResponsiveManager.init(context);
-
+    if (mounted) {
+      getIt<AppPreferences>()
+          .getLocale()
+          .then((currentLocale) => context.setLocale(currentLocale));
+    }
     super.didChangeDependencies();
   }
 
@@ -89,7 +93,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         //   create: (context) => getIt<SplashBloc>(),
         // ),
         BlocProvider(
-          create: (context) => getIt<LanguageBloc>(),
+          create: (context) => getIt<AppSettingsCubit>(),
         ),
         // BlocProvider(
         //   create: (context) => getIt<GlobalBloc>()
@@ -101,22 +105,16 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         alignment: AlignmentDirectional.bottomStart,
         textDirection: ui.TextDirection.ltr,
         children: [
-          BlocBuilder<LanguageBloc, LanguageState>(
+          BlocBuilder<AppSettingsCubit, AppSettingsState>(
             builder: (context, state) {
               return PlatformBuilder(
                 androidBuilder: (context) => _initialMaterialApp(state),
                 iosBuilder: (context) => CupertinoApp(
-                  localizationsDelegates: const [
-                    GlobalMaterialLocalizations.delegate,
-                    GlobalCupertinoLocalizations.delegate,
-                    GlobalWidgetsLocalizations.delegate,
-                  ],
-                  supportedLocales: const [
-                    Locale('ar', 'SA'),
-                  ],
-                  locale: state.selectedLanguage.value,
+                  localizationsDelegates: context.localizationDelegates,
+                  supportedLocales: context.supportedLocales,
+                  locale: context.locale,
                   debugShowCheckedModeBanner: false,
-                  title: AppStrings.appNameArabic,
+                  title: AppStrings.appName.tr(),
                   onGenerateRoute: AppRouteGenerator.onGenerateRoute,
                   initialRoute: AppRoutesNames.rSplashScreen,
                   navigatorKey: navigatorKey,
@@ -133,20 +131,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     );
   }
 
-  MaterialApp _initialMaterialApp(LanguageState state) {
+  MaterialApp _initialMaterialApp(AppSettingsState state) {
     return MaterialApp(
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      //todo: add the supported locales
-      supportedLocales: const [
-        Locale('ar', 'SA'),
-      ],
-      locale: state.selectedLanguage.value,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       debugShowCheckedModeBanner: false,
-      title: AppStrings.appNameArabic,
+      title: AppStrings.appName.tr(),
       //todo: add dynamic theme
       themeMode: ThemeMode.light,
       theme: appLightTheme(),

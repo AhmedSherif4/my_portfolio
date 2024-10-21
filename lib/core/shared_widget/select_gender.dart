@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/config/resources/app_colors.dart';
 import 'package:my_portfolio/config/resources/app_strings.dart';
 import 'package:my_portfolio/core/enum/enum_generation.dart';
+
 import '../../my_app/app_reference.dart';
 import '../services/services_locator.dart';
 import '../shared_models/user/data/user_local_data_source/user_local_data_source.dart';
@@ -24,20 +25,20 @@ class _SelectGenderState extends State<SelectGender> {
   @override
   void initState() {
     super.initState();
-    if(getIt<UserLocalDataSource>().getUserData() != null){
-    if (getIt<UserLocalDataSource>().getUserData()!.gender == 'male') {
-      genderType = GenderType.male;
-    } else if (getIt<UserLocalDataSource>().getUserData()!.gender == 'female') {
-      genderType = GenderType.female;
-    } else {
-      genderType = GenderType.other;
-    }
+    if (getIt<UserLocalDataSource>().getUserData() != null) {
+      if (getIt<UserLocalDataSource>().getUserData()!.gender == 'male') {
+        genderType = GenderType.male;
+      } else if (getIt<UserLocalDataSource>().getUserData()!.gender ==
+          'female') {
+        genderType = GenderType.female;
+      } else {
+        genderType = GenderType.other;
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
@@ -62,10 +63,8 @@ class _SelectGenderState extends State<SelectGender> {
               },
               activeColor: AppColors.primaryColor,
               materialTapTargetSize: MaterialTapTargetSize.padded,
-              fillColor:
-                  WidgetStateProperty.all<Color>(AppColors.primaryColor),
-              overlayColor:
-                  WidgetStateProperty.all<Color>(AppColors.primary2),
+              fillColor: WidgetStateProperty.all<Color>(AppColors.primaryColor),
+              overlayColor: WidgetStateProperty.all<Color>(AppColors.primary2),
               visualDensity: VisualDensity.comfortable,
             ),
           ],
@@ -87,10 +86,8 @@ class _SelectGenderState extends State<SelectGender> {
               },
               activeColor: AppColors.primaryColor,
               materialTapTargetSize: MaterialTapTargetSize.padded,
-              fillColor:
-                  WidgetStateProperty.all<Color>(AppColors.primaryColor),
-              overlayColor:
-                  WidgetStateProperty.all<Color>(AppColors.primary2),
+              fillColor: WidgetStateProperty.all<Color>(AppColors.primaryColor),
+              overlayColor: WidgetStateProperty.all<Color>(AppColors.primary2),
               visualDensity: VisualDensity.comfortable,
             ),
           ],
@@ -98,7 +95,7 @@ class _SelectGenderState extends State<SelectGender> {
         Row(
           children: [
             Text(
-              AppStrings.otherGendar,
+              AppStrings.otherGender,
               style: AppReference.themeData.textTheme.bodyMedium,
             ),
             Radio(
@@ -112,10 +109,8 @@ class _SelectGenderState extends State<SelectGender> {
               },
               activeColor: AppColors.primaryColor,
               materialTapTargetSize: MaterialTapTargetSize.padded,
-              fillColor:
-                  WidgetStateProperty.all<Color>(AppColors.primaryColor),
-              overlayColor:
-                  WidgetStateProperty.all<Color>(AppColors.primary2),
+              fillColor: WidgetStateProperty.all<Color>(AppColors.primaryColor),
+              overlayColor: WidgetStateProperty.all<Color>(AppColors.primary2),
               visualDensity: VisualDensity.comfortable,
             ),
           ],
