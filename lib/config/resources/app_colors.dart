@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 abstract class AppColors {
   static const Color black = Color(0xFF000000);
+  static const Color gray = Color(0xFF9E9E9E);
+  static const Color red = Color(0xFFE57373);
+  static const Color blue = Color(0xFF64B5F6);
+
   ///primary color
   static const Color primaryColor = Color(0xFF1B3D6F);
   static const Color primaryColor2 = Color(0xFFF47827);
@@ -10,7 +14,7 @@ abstract class AppColors {
   static const Color quranColor = Color(0xffDFBA41);
 
   ///secondary color
-  static const Color secondaryColor =  Color(0xFF382673);
+  static const Color secondaryColor = Color(0xFF382673);
   static const Color secondaryColor2 = Color(0xFF5C701B);
   static const Color secondaryColor3 = Color(0xFF7193C5);
   static const Color secondaryColor4 = Color(0xFF58340D);
@@ -33,13 +37,11 @@ abstract class AppColors {
   static const Color failColor = Color(0xFFB3261E);
   static const Color successColor = Color(0xFF02542D);
   static const Color warningColor = Color(0xFFE8B931);
-
-
 }
 
 abstract class AppGradientColors {
   // any Gradient Colors
-    static const LinearGradient blueGradient2 = LinearGradient(
+  static const LinearGradient blueGradient2 = LinearGradient(
     begin: Alignment(-0.95, -0.31),
     end: Alignment(0.95, 0.31),
     colors: [
@@ -57,13 +59,13 @@ abstract class AppGradientColors {
     ],
   );
 
-  static const LinearGradient adviceGradient =  LinearGradient(
+  static const LinearGradient adviceGradient = LinearGradient(
     colors: [Color(0xFF3DB8EF), Color(0xFFE7E0BE)],
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
   );
 
-  static const LinearGradient pointsGradient =  LinearGradient(
+  static const LinearGradient pointsGradient = LinearGradient(
     colors: [
       Color(0xFF3E238A),
       Color(0xFF3A2C1D),
@@ -72,7 +74,7 @@ abstract class AppGradientColors {
     end: Alignment.bottomCenter,
   );
 
-  static const LinearGradient guestDialogGradient =  LinearGradient(
+  static const LinearGradient guestDialogGradient = LinearGradient(
     colors: [
       Color(0xFFF9A144),
       Color(0xFFD0781B),
@@ -80,7 +82,7 @@ abstract class AppGradientColors {
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
   );
-  static const LinearGradient nafeesGradient =  LinearGradient(
+  static const LinearGradient nafeesGradient = LinearGradient(
     colors: [
       Color(0xFFFF9C4B),
       Color(0xFFF47827),

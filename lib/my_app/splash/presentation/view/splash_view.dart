@@ -84,7 +84,6 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   void didChangeDependencies() {
-    AppReference.getDeviceInfo(context);
     super.didChangeDependencies();
   }
 

@@ -28,15 +28,12 @@ class CustomAppBarWidget extends StatelessWidget {
                       Phoenix.rebirth(context);
                     },
                     icon: const Icon(Icons.translate_rounded)),
-                IconButton(
-                    onPressed: () {
-                      cubit.getThemeMode()
-                          ? cubit.isDark(false)
-                          : cubit.isDark(true);
-                    },
-                    icon: Icon(cubit.getThemeMode()
-                        ? Icons.dark_mode_rounded
-                        : Icons.light_mode_rounded)),
+                Switch(
+                  value: cubit.getThemeMode(),
+                  onChanged: (isDark) {
+                    cubit.setThemeMode(isDark);
+                  },
+                )
               ],
             );
           }),

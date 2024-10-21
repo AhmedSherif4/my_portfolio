@@ -18,3 +18,8 @@ class SetTheme extends AppSettingsState {
   @override
   List<Object> get props => [];
 }
+
+class GetTheme extends AppSettingsState {
+  @override
+  List<Object> get props => [];
+}

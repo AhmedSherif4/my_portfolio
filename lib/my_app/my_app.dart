@@ -6,14 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_portfolio/config/base_local_data_source/app_preferences.dart';
 import 'package:my_portfolio/config/resources/app_strings.dart';
-import 'package:my_portfolio/config/resources/theme/light_theme.dart';
 import 'package:my_portfolio/config/responsive/responsive.dart';
 import 'package:my_portfolio/core/services/services_locator.dart';
 import 'package:my_portfolio/my_app/deep_link.dart';
 
 import '../config/adaptive/platform_builder.dart';
+import '../config/resources/theme_mode/theme_manager.dart';
 import '../config/routes/routes_generator.dart';
 import '../config/routes/routes_names.dart';
+import 'app_reference.dart';
 import 'app_settings/app_settings_cubit.dart';
 
 class MyApp extends StatefulWidget {
@@ -43,6 +44,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   void didChangeDependencies() async {
+    AppReference.getDeviceInfo(context);
     ResponsiveManager.init(context);
     if (mounted) {
       getIt<AppPreferences>()
@@ -86,6 +88,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    // MaterialApp initialMaterialApp(AppSettingsState state) {
+    //   return MaterialApp(
+    //
+    //   );
+    // }
     return MultiBlocProvider(
       providers: [
         // BlocProvider(
@@ -108,7 +115,21 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           BlocBuilder<AppSettingsCubit, AppSettingsState>(
             builder: (context, state) {
               return PlatformBuilder(
-                androidBuilder: (context) => _initialMaterialApp(state),
+                androidBuilder: (context) => MaterialApp(
+                  localizationsDelegates: context.localizationDelegates,
+                  supportedLocales: context.supportedLocales,
+                  locale: context.locale,
+                  debugShowCheckedModeBanner: false,
+                  title: AppStrings.appName.tr(),
+                  theme: ThemeManager.appThemeData[AppTheme.light],
+                  darkTheme: ThemeManager.appThemeData[AppTheme.dark],
+                  themeMode: context.read<AppSettingsCubit>().getThemeMode()
+                      ? ThemeMode.dark
+                      : ThemeMode.light,
+                  onGenerateRoute: AppRouteGenerator.onGenerateRoute,
+                  initialRoute: AppRoutesNames.rSplashScreen,
+                  navigatorKey: navigatorKey,
+                ),
                 iosBuilder: (context) => CupertinoApp(
                   localizationsDelegates: context.localizationDelegates,
                   supportedLocales: context.supportedLocales,
@@ -119,8 +140,36 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                   initialRoute: AppRoutesNames.rSplashScreen,
                   navigatorKey: navigatorKey,
                 ),
-                webBuilder: (context) => _initialMaterialApp(state),
-                windowsBuilder: (context) => _initialMaterialApp(state),
+                webBuilder: (context) => MaterialApp(
+                  localizationsDelegates: context.localizationDelegates,
+                  supportedLocales: context.supportedLocales,
+                  locale: context.locale,
+                  debugShowCheckedModeBanner: false,
+                  title: AppStrings.appName.tr(),
+                  theme: ThemeManager.appThemeData[AppTheme.light],
+                  darkTheme: ThemeManager.appThemeData[AppTheme.dark],
+                  themeMode: context.read<AppSettingsCubit>().getThemeMode()
+                      ? ThemeMode.dark
+                      : ThemeMode.light,
+                  onGenerateRoute: AppRouteGenerator.onGenerateRoute,
+                  initialRoute: AppRoutesNames.rSplashScreen,
+                  navigatorKey: navigatorKey,
+                ),
+                windowsBuilder: (context) => MaterialApp(
+                  localizationsDelegates: context.localizationDelegates,
+                  supportedLocales: context.supportedLocales,
+                  locale: context.locale,
+                  debugShowCheckedModeBanner: false,
+                  title: AppStrings.appName.tr(),
+                  theme: ThemeManager.appThemeData[AppTheme.light],
+                  darkTheme: ThemeManager.appThemeData[AppTheme.dark],
+                  themeMode: context.read<AppSettingsCubit>().getThemeMode()
+                      ? ThemeMode.dark
+                      : ThemeMode.light,
+                  onGenerateRoute: AppRouteGenerator.onGenerateRoute,
+                  initialRoute: AppRoutesNames.rSplashScreen,
+                  navigatorKey: navigatorKey,
+                ),
               );
             },
           ),
@@ -128,22 +177,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           // const ConnectionAlert(),
         ],
       ),
-    );
-  }
-
-  MaterialApp _initialMaterialApp(AppSettingsState state) {
-    return MaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      debugShowCheckedModeBanner: false,
-      title: AppStrings.appName.tr(),
-      //todo: add dynamic theme
-      themeMode: ThemeMode.light,
-      theme: appLightTheme(),
-      onGenerateRoute: AppRouteGenerator.onGenerateRoute,
-      initialRoute: AppRoutesNames.rSplashScreen,
-      navigatorKey: navigatorKey,
     );
   }
 }

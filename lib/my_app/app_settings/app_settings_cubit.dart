@@ -17,12 +17,13 @@ class AppSettingsCubit extends Cubit<AppSettingsState> {
     emit(ChangeLocale());
   }
 
-  isDark(bool value) {
+  setThemeMode(bool value) {
     _appPreferences.setThemeMode(value);
     emit(SetTheme());
   }
 
   bool getThemeMode() {
+    emit(GetTheme());
     return _appPreferences.isDarkModeOn();
   }
 }

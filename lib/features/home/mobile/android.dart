@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../components/app_bar.dart';
+
 class HomeAndroid extends StatelessWidget {
   const HomeAndroid({super.key});
 
@@ -7,7 +9,11 @@ class HomeAndroid extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('HomeAndroid'),
+        child: Column(
+          children: [
+            CustomAppBarWidget(),
+          ],
+        ),
       ),
     );
   }
