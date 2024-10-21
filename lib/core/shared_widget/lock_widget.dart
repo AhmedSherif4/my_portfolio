@@ -19,7 +19,7 @@ class LockWidgets extends StatelessWidget {
     required this.lockWidget,
     required this.isLocked,
     required this.textLock,
-    this.assetLock = AppImagesAssets.sLock,
+    this.assetLock = AppImagesAssets.sLogo,
   });
 
   @override
@@ -43,14 +43,15 @@ class LockWidgets extends StatelessWidget {
                 assetLock,
                 height: 30.responsiveHeightRatio,
                 width: 30.responsiveHeightRatio,
-                colorFilter: const ColorFilter.mode(AppColors.secondaryColor4, BlendMode.srcIn),
+                colorFilter: const ColorFilter.mode(
+                    AppColors.secondaryColor4, BlendMode.srcIn),
               ),
               AppSize.s10.sizedBoxWidth,
               Text(
                 textLock,
                 style: const AppTextStyle().titleSmall18.copyWith(
-                  color: AppColors.secondaryColor4,
-                ),
+                      color: AppColors.secondaryColor4,
+                    ),
               ),
             ],
           ),

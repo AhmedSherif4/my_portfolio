@@ -1,3 +1,6 @@
+//! This file is not used in the project
+//! for the analytics we are using Firebase Analytics
+
 // import 'package:appsflyer_sdk/appsflyer_sdk.dart';
 // import 'package:firebase_analytics/firebase_analytics.dart';
 // import '../core/services/services_locator.dart';

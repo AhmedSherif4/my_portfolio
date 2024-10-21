@@ -72,7 +72,7 @@ dependencies:
   #for animation in qurant screen
   lottie: ^3.1.2
   app_settings: ^5.1.1
-#  path_provider_foundation: ^2.3.1
+  #  path_provider_foundation: ^2.3.1
   sign_in_with_apple: ^6.1.2
   screen_protector: ^1.4.2+1
   background_downloader: ^8.5.5
@@ -85,12 +85,12 @@ dependencies:
   carousel_slider: ^5.0.0
   image_cropper: ^8.0.2
   share_plus: ^10.0.2
-#  http: ^0.13.3
+  #  http: ^0.13.3
   flutter_html: any
   appsflyer_sdk: ^6.15.1
   in_app_review: ^2.0.9
-#  flutter_facebook_auth: ^6.0.4
-#  facebook_app_events: ^0.19.2
+  #  flutter_facebook_auth: ^6.0.4
+  #  facebook_app_events: ^0.19.2
 
   in_app_purchase: ^3.2.0
   flutter_spinkit: ^5.2.1
@@ -102,8 +102,10 @@ dependencies:
   flutter_staggered_grid_view: ^0.7.0
   macos_ui: ^2.0.9
   fluent_ui: ^4.9.2
+  flutter_localizations:
+    sdk: flutter
 
-  
+
 
 
 dev_dependencies:
@@ -125,8 +127,8 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/lottie/
-    - assets/audio/WrongAnswer.wav
-    - assets/audio/SuccessfulAnswer.wav
+  #    - assets/audio/WrongAnswer.wav
+  #    - assets/audio/SuccessfulAnswer.wav
 
   fonts:
 

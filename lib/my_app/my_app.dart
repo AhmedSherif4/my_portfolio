@@ -9,14 +9,12 @@ import 'package:my_portfolio/config/resources/theme/light_theme.dart';
 import 'package:my_portfolio/config/responsive/responsive.dart';
 import 'package:my_portfolio/core/services/services_locator.dart';
 import 'package:my_portfolio/my_app/deep_link.dart';
-import 'package:my_portfolio/my_app/splash/splash_screen.dart';
 
 import '../config/adaptive/platform_builder.dart';
 import '../config/resources/localization_logic/presentation/localization_view_model/localization_bloc.dart';
 import '../config/resources/localization_logic/presentation/localization_view_model/localization_state.dart';
 import '../config/routes/routes_generator.dart';
 import '../config/routes/routes_names.dart';
-import 'global/global_view_model/global_bloc.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp._internal();
@@ -50,6 +48,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     super.didChangeDependencies();
   }
 
+  //! for tracking the time the user spends in the app
   // @override
   // void didChangeAppLifecycleState(AppLifecycleState state) async {
   //   switch (state) {
@@ -105,7 +104,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           BlocBuilder<LanguageBloc, LanguageState>(
             builder: (context, state) {
               return PlatformBuilder(
-                androidBuilder: (context) => MaterialApp(
+                androidBuilder: (context) => _initialMaterialApp(state),
+                iosBuilder: (context) => CupertinoApp(
                   localizationsDelegates: const [
                     GlobalMaterialLocalizations.delegate,
                     GlobalCupertinoLocalizations.delegate,
@@ -117,27 +117,42 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                   locale: state.selectedLanguage.value,
                   debugShowCheckedModeBanner: false,
                   title: AppStrings.appNameArabic,
-                  themeMode: ThemeMode.light,
-                  theme: appLightTheme(),
                   onGenerateRoute: AppRouteGenerator.onGenerateRoute,
                   initialRoute: AppRoutesNames.rSplashScreen,
                   navigatorKey: navigatorKey,
                 ),
-                iosBuilder: (context) => const CupertinoApp(),
-                webBuilder: (context) => const MaterialApp(
-                  onGenerateRoute: AppRouteGenerator.onGenerateRoute,
-                  initialRoute: AppRoutesNames.rSplashScreen,
-                ),
-                windowsBuilder: (context) => const MaterialApp(
-                  onGenerateRoute: AppRouteGenerator.onGenerateRoute,
-                  initialRoute: AppRoutesNames.rSplashScreen,
-                ),
+                webBuilder: (context) => _initialMaterialApp(state),
+                windowsBuilder: (context) => _initialMaterialApp(state),
               );
             },
           ),
+          //! for checking the internet connection
           // const ConnectionAlert(),
         ],
       ),
+    );
+  }
+
+  MaterialApp _initialMaterialApp(LanguageState state) {
+    return MaterialApp(
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      //todo: add the supported locales
+      supportedLocales: const [
+        Locale('ar', 'SA'),
+      ],
+      locale: state.selectedLanguage.value,
+      debugShowCheckedModeBanner: false,
+      title: AppStrings.appNameArabic,
+      //todo: add dynamic theme
+      themeMode: ThemeMode.light,
+      theme: appLightTheme(),
+      onGenerateRoute: AppRouteGenerator.onGenerateRoute,
+      initialRoute: AppRoutesNames.rSplashScreen,
+      navigatorKey: navigatorKey,
     );
   }
 }

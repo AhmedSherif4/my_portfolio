@@ -33,24 +33,8 @@ import 'package:my_portfolio/core/shared_models/user/data/user_local_data_source
     as _i608;
 import 'package:my_portfolio/core/shared_widget/image_pick/image_pick_view_model/image_pick_bloc.dart'
     as _i183;
-import 'package:my_portfolio/my_app/global/data/global_data_source/global_remote_data_source.dart'
-    as _i574;
-import 'package:my_portfolio/my_app/global/data/global_screen_repository/global_repository.dart'
-    as _i210;
-import 'package:my_portfolio/my_app/global/domain/global_base_repository/global_base_repository.dart'
-    as _i481;
-import 'package:my_portfolio/my_app/global/domain/global_usecases/global_usecase.dart'
-    as _i0;
 import 'package:my_portfolio/my_app/global/global_view_model/global_bloc.dart'
     as _i436;
-import 'package:my_portfolio/my_app/splash/data/splash_data_source/splash_remote_data_source.dart'
-    as _i112;
-import 'package:my_portfolio/my_app/splash/data/splash_screen_repository/splash_repository.dart'
-    as _i522;
-import 'package:my_portfolio/my_app/splash/domain/splash_base_repository/splash_base_repository.dart'
-    as _i1066;
-import 'package:my_portfolio/my_app/splash/domain/splash_usecases/check_token_usecase.dart'
-    as _i637;
 import 'package:my_portfolio/my_app/splash/splash_screen.dart' as _i640;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -65,8 +49,10 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final injectableModule = _$InjectableModule();
-    gh.factory<_i183.ImagePickBloc>(() => _i183.ImagePickBloc());
     gh.factory<_i979.LanguageBloc>(() => _i979.LanguageBloc());
+    gh.factory<_i183.ImagePickBloc>(() => _i183.ImagePickBloc());
+    gh.factory<_i436.GlobalBloc>(() => _i436.GlobalBloc());
+    gh.factory<_i640.SplashBloc>(() => _i640.SplashBloc());
     gh.lazySingleton<_i282.AppInterceptors>(() => _i282.AppInterceptors());
     gh.lazySingleton<_i361.Dio>(() => injectableModule.dio);
     gh.lazySingleton<_i973.InternetConnectionChecker>(
@@ -88,52 +74,8 @@ extension GetItInjectableX on _i174.GetIt {
               apiConsumer: gh<_i569.ApiConsumer>(),
               networkInfo: gh<_i494.NetworkInfo>(),
             ));
-    gh.lazySingleton<_i112.CheckUserTokenBaseRemoteDataSource>(
-        () => _i112.CheckUserTokenRemoteDataSourceImpl(
-              networkInfo: gh<_i494.NetworkInfo>(),
-              apiConsumer: gh<_i569.ApiConsumer>(),
-              baseRemoteDataSource: gh<_i852.BaseRemoteDataSource>(),
-            ));
-    gh.lazySingleton<_i574.GlobalBaseRemoteDataSource>(
-        () => _i574.GlobalRemoteDataSourceImpl(
-              networkInfo: gh<_i494.NetworkInfo>(),
-              apiConsumer: gh<_i569.ApiConsumer>(),
-              baseRemoteDataSource: gh<_i852.BaseRemoteDataSource>(),
-            ));
     gh.lazySingleton<_i465.NotificationSetup>(
         () => _i465.NotificationSetup(apiConsumer: gh<_i569.ApiConsumer>()));
-    gh.lazySingleton<_i1066.CheckUserTokenBaseRepository>(
-        () => _i522.CheckUserTokenRepository(
-              remoteDataSource: gh<_i112.CheckUserTokenBaseRemoteDataSource>(),
-              baseRepository: gh<_i318.BaseRepository>(),
-              userLocalDataSource: gh<_i608.UserLocalDataSource>(),
-            ));
-    gh.lazySingleton<_i481.GlobalBaseRepository>(() => _i210.GlobalRepository(
-          remoteDataSource: gh<_i574.GlobalBaseRemoteDataSource>(),
-          baseRepository: gh<_i318.BaseRepository>(),
-          userLocalDataSource: gh<_i608.UserLocalDataSource>(),
-        ));
-    gh.lazySingleton<_i637.CheckUserTokenUseCase>(() =>
-        _i637.CheckUserTokenUseCase(
-            repository: gh<_i1066.CheckUserTokenBaseRepository>()));
-    gh.lazySingleton<_i637.EditUserDataUseCase>(() => _i637.EditUserDataUseCase(
-        repository: gh<_i1066.CheckUserTokenBaseRepository>()));
-    gh.lazySingleton<_i0.SendTimeUseCase>(() =>
-        _i0.SendTimeUseCase(repository: gh<_i481.GlobalBaseRepository>()));
-    gh.lazySingleton<_i0.CheckAppVersionUseCase>(() =>
-        _i0.CheckAppVersionUseCase(
-            repository: gh<_i481.GlobalBaseRepository>()));
-    gh.lazySingleton<_i0.GetInfoUseCase>(
-        () => _i0.GetInfoUseCase(repository: gh<_i481.GlobalBaseRepository>()));
-    gh.factory<_i640.SplashBloc>(() => _i640.SplashBloc(
-          gh<_i637.CheckUserTokenUseCase>(),
-          gh<_i637.EditUserDataUseCase>(),
-        ));
-    gh.factory<_i436.GlobalBloc>(() => _i436.GlobalBloc(
-          gh<_i0.SendTimeUseCase>(),
-          gh<_i0.CheckAppVersionUseCase>(),
-          gh<_i0.GetInfoUseCase>(),
-        ));
     return this;
   }
 }

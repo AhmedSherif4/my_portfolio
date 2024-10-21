@@ -2,6 +2,7 @@ import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 import 'my_app.dart';
 
+//! deep link manager
 class DeepLinkManager {
   DeepLinkManager._privateConstructor();
 

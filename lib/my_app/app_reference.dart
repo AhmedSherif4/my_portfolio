@@ -3,8 +3,6 @@ import 'dart:io';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/config/routes/route_manager.dart';
-import 'package:my_portfolio/config/routes/routes_names.dart';
 import 'package:my_portfolio/core/enum/enum_generation.dart';
 import 'package:my_portfolio/core/services/services_locator.dart';
 
@@ -20,30 +18,41 @@ class AppReference {
 
   static late bool deviceIsAndroid;
   static bool deviceIsTablet = false;
+  static bool deviceIsWeb = kIsWeb;
   static late bool deviceIsIos;
   static late ThemeData themeData;
   static final deviceInfoPlugin = DeviceInfoPlugin();
   static final GlobalKey<NavigatorState> _navigatorKey =
   GlobalKey<NavigatorState>();
+
   static GlobalKey<NavigatorState> get navigatorKey => _navigatorKey;
 
   static Orientation currentOrientation(context) =>
-      MediaQuery.of(context).orientation;
+      MediaQuery
+          .of(context)
+          .orientation;
 
   static bool isPortrait(context) =>
-      MediaQuery.of(context).orientation == Orientation.portrait;
+      MediaQuery
+          .of(context)
+          .orientation == Orientation.portrait;
 
-  static double deviceHeight(context) => MediaQuery.sizeOf(context).height;
+  static double deviceHeight(context) =>
+      MediaQuery
+          .sizeOf(context)
+          .height;
 
-  static double deviceWidth(context) => MediaQuery.sizeOf(context).width;
+  static double deviceWidth(context) =>
+      MediaQuery
+          .sizeOf(context)
+          .width;
 
   static void getDeviceInfo(BuildContext context) {
     final sizeMediaQuery = MediaQuery.sizeOf(context);
     themeData = Theme.of(context);
-    if(!kIsWeb){
+    if (!deviceIsWeb) {
       deviceIsAndroid = Platform.isAndroid;
       deviceIsIos = Platform.isIOS;
-
     }
     final double devicePixelRatio = sizeMediaQuery.shortestSide;
     if (devicePixelRatio < 550) {
@@ -65,31 +74,27 @@ class AppReference {
     }
   }
 
-  // static Future<String> isPhysicalDevice() async {
-  //   if (AppReference.deviceIsIos) {
-  //     final iosInfo = await deviceInfoPlugin.iosInfo;
-  //     if (iosInfo.isPhysicalDevice) {
-  //       return "true";
-  //     } else {
-  //       return "false";
-  //     }
-  //   } else if (AppReference.deviceIsAndroid) {
-  //     final androidInfo = await deviceInfoPlugin.androidInfo;
-  //     if (androidInfo.isPhysicalDevice) {
-  //       print("true emulator");
-  //       return "true";
-  //     } else {
-  //       print("false emulator");
-  //       return "false";
-  //     }
-  //   } else {
-  //     return 'false';
-  //   }
-  // }
-
-
-
-
+  static Future<String> isPhysicalDevice() async {
+    if (AppReference.deviceIsIos) {
+      final iosInfo = await deviceInfoPlugin.iosInfo;
+      if (iosInfo.isPhysicalDevice) {
+        return "true";
+      } else {
+        return "false";
+      }
+    } else if (AppReference.deviceIsAndroid) {
+      final androidInfo = await deviceInfoPlugin.androidInfo;
+      if (androidInfo.isPhysicalDevice) {
+        print("true emulator");
+        return "true";
+      } else {
+        print("false emulator");
+        return "false";
+      }
+    } else {
+      return 'false';
+    }
+  }
 
 
   static Future<bool> isHuaweiDevice() async {
@@ -135,10 +140,9 @@ class AppReference {
         actionIcon: Icons.local_hospital_outlined,
         actionLabel: 'تسجيل',
         onPressed: () {
-          RouteManager.rPushNamedAndRemoveUntil(
-              context: context, rName: AppRoutesNames.rWelcome);
+          // RouteManager.rPushNamedAndRemoveUntil(
+          //     context: context, rName: AppRoutesNames.rWelcome);
         });
-    // showSnackBar(description: 'يجب تسجيل الدخول أولا', state: ToastStates.warning, context: context);
   }
 
   static StringType detectStringType(String input) {

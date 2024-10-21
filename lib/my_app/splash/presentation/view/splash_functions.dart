@@ -1,12 +1,11 @@
 part of '../../splash_screen.dart';
 
-
 void _showRepairingDialog(BuildContext context) {
   showDialog(
       context: context,
       builder: (_) => RepairDialog(onTap: (value) {
-        SystemNavigator.pop();
-      }));
+            SystemNavigator.pop();
+          }));
 }
 
 // bool _appInProductionAndNotUpdateToLastVersion() {
@@ -35,12 +34,9 @@ bool _appHaveUpdate(BuildContext context) {
 }
 
 bool _appHaveLastVersion(BuildContext context) {
-  return BlocProvider.of<GlobalBloc>(context)
-      .state
-      .infoModel
-      .apkVersion == AppKeys.androidVersion;
+  return BlocProvider.of<GlobalBloc>(context).state.infoModel.apkVersion ==
+      AppKeys.androidVersion;
 }
-
 
 bool _appRequiredUpdate(BuildContext context) {
   return BlocProvider.of<GlobalBloc>(context)
@@ -89,28 +85,14 @@ void _checkOnBoardingIsViewed(BuildContext context, bool onBoardingStatus) {
   }
 }
 
-void _checkChildHaveStageOrNot(BuildContext context, UserEntity? userData) {
-  if (userData!.stageId != 0) {
-    _goToHomeScreen(context);
-  } else {
-    Navigator.pushReplacementNamed(
-      context,
-      AppRoutesNames.rGradeChoosingScreen,
-      arguments: false,
-    );
-  }
-}
-
-void _goToHomeScreen(BuildContext context, /*UserEntity? userData*/) {
+void _goToHomeScreen(
+  BuildContext context,
+  /*UserEntity? userData*/
+) {
   Navigator.pushReplacementNamed(
     context,
     AppRoutesNames.rHomeScreen,
   );
-  // Navigator.pushReplacementNamed(
-  //   context,
-  //   AppRoutesNames.rHomeLayoutView,
-  //   arguments: userData,
-  // );
 }
 
 void _checkNextScreenAfterSplashFromDeepLink(bool isValidToken) {
@@ -162,21 +144,22 @@ void _checkNextScreenAfterSplashFromDeepLink(bool isValidToken) {
   // }
 }
 
-void _checkNextScreenAfterSplash(bool isValidToken, UserEntity? userData, BuildContext context) {
-  switch (isValidToken) {
-    case true:
-      if (userData == null) {
-        _goToWelcomeScreen(context);
-      } else {
-        if (userData!.type == UsersType.child.name) {
-          _checkChildHaveStageOrNot(context, userData);
-        } else {
-          _goToHomeScreen(context);
-        }
-      }
-    case false:
-      _goToWelcomeScreen(context);
-  }
+void _checkNextScreenAfterSplash(
+    bool isValidToken, UserEntity? userData, BuildContext context) {
+  // switch (isValidToken) {
+  //   case true:
+  //     if (userData == null) {
+  //       _goToWelcomeScreen(context);
+  //     } else {
+  //       if (userData!.type == UsersType.child.name) {
+  //         _checkChildHaveStageOrNot(context, userData);
+  //       } else {
+  //         _goToHomeScreen(context);
+  //       }
+  //     }
+  //   case false:
+  //     _goToWelcomeScreen(context);
+  // }
 }
 
 void _updateDialogOnTap({
@@ -184,13 +167,11 @@ void _updateDialogOnTap({
   required String iosLink,
 }) {
   launchUrl(
-    AppReference.deviceIsAndroid
-        ? Uri.parse(androidLink)
-        : Uri.parse(iosLink),
+    AppReference.deviceIsAndroid ? Uri.parse(androidLink) : Uri.parse(iosLink),
   );
 }
 
-_splashListener(context, state, mounted, widget, userData){
+_splashListener(context, state, mounted, widget, userData) {
   (context, state) async {
     switch (state.checkTokenEventIsFinish) {
       case RequestStates.loaded:
@@ -209,7 +190,7 @@ _splashListener(context, state, mounted, widget, userData){
           state: ToastStates.error,
           context: context,
         );
-    // _goToWelcomeScreen();
+      // _goToWelcomeScreen();
       default:
       // _goToWelcomeScreen();
     }
@@ -229,9 +210,8 @@ _splashListener(context, state, mounted, widget, userData){
 }
 
 _globalListener(context, state, mounted) async {
-  if (state.checkAppVersionState == RequestStates.loaded)  {
-
-    if (!await AppReference.isHuaweiDevice() && mounted ) {
+  if (state.checkAppVersionState == RequestStates.loaded) {
+    if (!await AppReference.isHuaweiDevice() && mounted) {
       // AppAnalytics.init();
       // AppAnalytics.appOpenedLogEvent();
 
@@ -254,7 +234,6 @@ _globalListener(context, state, mounted) async {
                 showDialog(
                   context: context,
                   barrierDismissible: false,
-
                   builder: (_) => PopScope(
                     canPop: false,
                     child: UpdateDialog(
@@ -278,10 +257,9 @@ _globalListener(context, state, mounted) async {
                     if (getIt<BaseAppSecurityData>().getToken() == null) {
                       _checkOnBoardingIsViewed(context, false);
                     } else {
-                      if(context.mounted) {
-                        context
-                            .read<SplashBloc>()
-                            .add(CheckUserTokenEvent());}
+                      if (context.mounted) {
+                        context.read<SplashBloc>().add(CheckUserTokenEvent());
+                      }
                     }
                   }
                 });
@@ -295,7 +273,6 @@ _globalListener(context, state, mounted) async {
             }
             // }
           }
-
         });
 
         if (await NotificationSetup.notiPermissionStatus()) {
@@ -304,15 +281,14 @@ _globalListener(context, state, mounted) async {
             NotificationSetup.iosBackGroundNotification();
           }
           await NotificationSetup.messagingPermission.subscribeToTopic("all");
-          if(kDebugMode) {
-            await NotificationSetup.messagingPermission.subscribeToTopic("all-test");
+          if (kDebugMode) {
+            await NotificationSetup.messagingPermission
+                .subscribeToTopic("all-test");
           }
         }
-
       } else {
         _goToWelcomeScreen(context);
       }
-
     } else {
       if (mounted) {
         if (_appRepairing(context)) {
@@ -331,7 +307,6 @@ _globalListener(context, state, mounted) async {
               showDialog(
                 context: context,
                 barrierDismissible: false,
-
                 builder: (_) => PopScope(
                   canPop: false,
                   child: UpdateDialog(
@@ -355,10 +330,9 @@ _globalListener(context, state, mounted) async {
                   if (getIt<BaseAppSecurityData>().getToken() == null) {
                     _checkOnBoardingIsViewed(context, false);
                   } else {
-                    if(context.mounted) {
-                      context
-                          .read<SplashBloc>()
-                          .add(CheckUserTokenEvent());}
+                    if (context.mounted) {
+                      context.read<SplashBloc>().add(CheckUserTokenEvent());
+                    }
                   }
                 }
               });
@@ -374,12 +348,5 @@ _globalListener(context, state, mounted) async {
         }
       }
     }
-
-
-
-
-
-
-
   }
 }
