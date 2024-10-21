@@ -115,67 +115,52 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           BlocBuilder<AppSettingsCubit, AppSettingsState>(
             builder: (context, state) {
               return PlatformBuilder(
-                androidBuilder: (context) => MaterialApp(
-                  localizationsDelegates: context.localizationDelegates,
-                  supportedLocales: context.supportedLocales,
-                  locale: context.locale,
-                  debugShowCheckedModeBanner: false,
-                  title: AppStrings.appName.tr(),
-                  theme: ThemeManager.appThemeData[AppTheme.light],
-                  darkTheme: ThemeManager.appThemeData[AppTheme.dark],
-                  themeMode: context.read<AppSettingsCubit>().getThemeMode()
-                      ? ThemeMode.dark
-                      : ThemeMode.light,
-                  onGenerateRoute: AppRouteGenerator.onGenerateRoute,
-                  initialRoute: AppRoutesNames.rSplashScreen,
-                  navigatorKey: navigatorKey,
-                ),
-                iosBuilder: (context) => CupertinoApp(
-                  localizationsDelegates: context.localizationDelegates,
-                  supportedLocales: context.supportedLocales,
-                  locale: context.locale,
-                  debugShowCheckedModeBanner: false,
-                  title: AppStrings.appName.tr(),
-                  onGenerateRoute: AppRouteGenerator.onGenerateRoute,
-                  initialRoute: AppRoutesNames.rSplashScreen,
-                  navigatorKey: navigatorKey,
-                ),
-                webBuilder: (context) => MaterialApp(
-                  localizationsDelegates: context.localizationDelegates,
-                  supportedLocales: context.supportedLocales,
-                  locale: context.locale,
-                  debugShowCheckedModeBanner: false,
-                  title: AppStrings.appName.tr(),
-                  theme: ThemeManager.appThemeData[AppTheme.light],
-                  darkTheme: ThemeManager.appThemeData[AppTheme.dark],
-                  themeMode: context.read<AppSettingsCubit>().getThemeMode()
-                      ? ThemeMode.dark
-                      : ThemeMode.light,
-                  onGenerateRoute: AppRouteGenerator.onGenerateRoute,
-                  initialRoute: AppRoutesNames.rSplashScreen,
-                  navigatorKey: navigatorKey,
-                ),
-                windowsBuilder: (context) => MaterialApp(
-                  localizationsDelegates: context.localizationDelegates,
-                  supportedLocales: context.supportedLocales,
-                  locale: context.locale,
-                  debugShowCheckedModeBanner: false,
-                  title: AppStrings.appName.tr(),
-                  theme: ThemeManager.appThemeData[AppTheme.light],
-                  darkTheme: ThemeManager.appThemeData[AppTheme.dark],
-                  themeMode: context.read<AppSettingsCubit>().getThemeMode()
-                      ? ThemeMode.dark
-                      : ThemeMode.light,
-                  onGenerateRoute: AppRouteGenerator.onGenerateRoute,
-                  initialRoute: AppRoutesNames.rSplashScreen,
-                  navigatorKey: navigatorKey,
-                ),
+                androidBuilder: _materialApp,
+                iosBuilder: _cupertinoApp,
+                webBuilder: _materialApp,
+                windowsBuilder: _materialApp,
               );
             },
           ),
           //! for checking the internet connection
           // const ConnectionAlert(),
         ],
+      ),
+    );
+  }
+
+  Widget _materialApp(BuildContext context) {
+    return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      debugShowCheckedModeBanner: false,
+      title: AppStrings.appName.tr(),
+      theme: ThemeManager.appThemeData[AppTheme.light],
+      darkTheme: ThemeManager.appThemeData[AppTheme.dark],
+      themeMode: context.read<AppSettingsCubit>().getThemeMode()
+          ? ThemeMode.dark
+          : ThemeMode.light,
+      onGenerateRoute: AppRouteGenerator.onGenerateRoute,
+      initialRoute: AppRoutesNames.rSplashScreen,
+      navigatorKey: navigatorKey,
+    );
+  }
+
+  Widget _cupertinoApp(BuildContext context) {
+    return CupertinoApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      debugShowCheckedModeBanner: false,
+      title: AppStrings.appName.tr(),
+      onGenerateRoute: AppRouteGenerator.onGenerateRoute,
+      initialRoute: AppRoutesNames.rSplashScreen,
+      navigatorKey: navigatorKey,
+      theme: CupertinoThemeData(
+        brightness: context.read<AppSettingsCubit>().getThemeMode()
+            ? Brightness.dark
+            : Brightness.light,
       ),
     );
   }
