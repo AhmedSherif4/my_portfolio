@@ -57,4 +57,6 @@ abstract class AppStrings {
   static const String otherGender = 'otherGender';
 
   static const String female = 'female';
+
+  static const String welcome = 'welcome';
 }

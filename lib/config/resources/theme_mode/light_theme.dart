@@ -26,7 +26,7 @@ class LightTheme with SubThemeData {
         textStyle: appTextStyle.bodyMedium20w4,
         menuStyle: getMenuStyle(),
       ),
-      scaffoldBackgroundColor: AppColors.white,
+      scaffoldBackgroundColor: AppColors.backgroundLightColor,
       inputDecorationTheme: getInputDecorationTheme(AppColors.black),
     );
   }

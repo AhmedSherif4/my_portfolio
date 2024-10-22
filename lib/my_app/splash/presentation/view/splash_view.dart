@@ -110,12 +110,12 @@ class _SplashScreenState extends State<SplashScreen>
                       boxShadow: [
                         BoxShadow(
                           color:
-                              AppColors.primaryColor(context).withOpacity(.2),
+                              AppColors.primaryColor2(context).withOpacity(.2),
                           // blurRadius: 100,
                           // spreadRadius: 10,
                         ),
                       ],
-                      color: AppColors.primaryColor(context),
+                      color: AppColors.primaryColor2(context),
                       shape: BoxShape.circle,
                     ),
                     child: Center(
@@ -123,7 +123,7 @@ class _SplashScreenState extends State<SplashScreen>
                         width: AppReference.deviceWidth(context),
                         height: AppReference.deviceHeight(context),
                         decoration: BoxDecoration(
-                            color: AppColors.primaryColor(context),
+                            color: AppColors.primaryColor2(context),
                             shape: BoxShape.circle),
                         child: AnimatedBuilder(
                           animation: scaleAnimation,
@@ -132,7 +132,7 @@ class _SplashScreenState extends State<SplashScreen>
                             child: Container(
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: AppColors.primaryColor(context),
+                                color: AppColors.primaryColor2(context),
                               ),
                             ),
                           ),

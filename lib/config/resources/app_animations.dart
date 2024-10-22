@@ -11,18 +11,17 @@ extension WidgetAnimationExtension on Widget {
   }) {
     return animate()
         .fadeIn(
-      duration: 500.ms,
-      curve: Curves.easeInOutQuart,
-    )
+          duration: 500.ms,
+          curve: Curves.easeInOutQuart,
+        )
         .moveX(
-      delay: 500.ms,
-      begin: isFromStart ? 50 : -50,
-      end: 0,
-      duration: duration,
-      curve: Curves.easeInOutQuart,
-    );
+          delay: 500.ms,
+          begin: isFromStart ? 50 : -50,
+          end: 0,
+          duration: duration,
+          curve: Curves.easeInOutQuart,
+        );
   }
-
 
   ///! to show any widget from bottom to top
   /// from bottom to top with fade
@@ -32,16 +31,16 @@ extension WidgetAnimationExtension on Widget {
   }) {
     return animate()
         .fadeIn(
-      duration: 500.ms,
-      curve: Curves.easeInOutQuart,
-    )
+          duration: 500.ms,
+          curve: Curves.easeInOutQuart,
+        )
         .moveY(
-      delay: 500.ms,
-      begin: isFromBottom? 50:-50,
-      end: 0,
-      duration: 500.ms,
-      curve: Curves.easeInOutQuart,
-    );
+          delay: 500.ms,
+          begin: isFromBottom ? 50 : -50,
+          end: 0,
+          duration: 500.ms,
+          curve: Curves.easeInOutQuart,
+        );
   }
 
   //? shine widget
@@ -150,17 +149,17 @@ extension WidgetAnimationExtension on Widget {
       onPlay: (controller) => controller.repeat(reverse: true),
     )
         .fadeIn(
-      duration: 500.ms,
-      curve: Curves.easeInOutQuart,
-    )
+          duration: 500.ms,
+          curve: Curves.easeInOutQuart,
+        )
         .scaleY(
-      alignment: alignment,
-      begin: 0.5,
-      end: 1,
-      curve: Curves.easeInOutQuart,
-      delay: 500.ms,
-      duration:duration,
-    );
+          alignment: alignment,
+          begin: 0.5,
+          end: 1,
+          curve: Curves.easeInOutQuart,
+          delay: 500.ms,
+          duration: duration,
+        );
   }
 
   ///! to show texts, images, icons, etc, حاجة تظهر من النص وتبدأ تكبر
@@ -171,17 +170,17 @@ extension WidgetAnimationExtension on Widget {
   }) {
     return animate()
         .fadeIn(
-      duration: 500.ms,
-      curve: Curves.easeInOutQuart,
-    )
+          duration: 500.ms,
+          curve: Curves.easeInOutQuart,
+        )
         .scaleX(
-      alignment: alignment,
-      begin: 0.0,
-      end: 1,
-      curve: Curves.easeInOutQuart,
-      delay: 500.ms,
-      duration: duration,
-    );
+          alignment: alignment,
+          begin: 0.0,
+          end: 1,
+          curve: Curves.easeInOutQuart,
+          delay: 500.ms,
+          duration: duration,
+        );
   }
 
   ///! so normal animation

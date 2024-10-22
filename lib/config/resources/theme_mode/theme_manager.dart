@@ -38,7 +38,8 @@ mixin SubThemeData {
   ) =>
       SwitchThemeData(
         thumbColor: const WidgetStatePropertyAll(AppColors.white),
-        thumbIcon: WidgetStatePropertyAll(Icon(icon)),
+        thumbIcon:
+            WidgetStatePropertyAll(Icon(icon, color: AppColors.darkColor)),
         trackColor: WidgetStatePropertyAll(color),
         overlayColor: const WidgetStatePropertyAll(AppColors.white),
       );

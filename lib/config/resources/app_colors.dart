@@ -24,9 +24,22 @@ abstract class AppColors {
   static Color primaryColor4(BuildContext context) =>
       isDarkMode(context) ? const Color(0xFFEAD8B1) : const Color(0xFF603F26);
 
+  static const Color darkColor = Color(0xFF001F3F);
+  static const Color darkColor2 = Color(0xFF3A6D8C);
+  static const Color darkColor3 = Color(0xFF6A9AB0);
+  static const Color darkColor4 = Color(0xFFEAD8B1);
+
+  static const Color lightColor = Color(0xFFFFEAC5);
+  static const Color lightColor2 = Color(0xFFFFDBB5);
+  static const Color lightColor3 = Color(0xFF6C4E31);
+  static const Color lightColor4 = Color(0xFF603F26);
+
   ///background color
   static Color backgroundColor(BuildContext context) =>
       isDarkMode(context) ? Color(0xFF001F3F) : Color(0xFFFFEAC5);
+
+  static Color backgroundLightColor = Color(0xFFFFEAC5);
+  static Color backgroundDarkColor = Color(0xFF001F3F);
 
   ///fields color
   static const Color white = Color(0xFFFFFFFF);

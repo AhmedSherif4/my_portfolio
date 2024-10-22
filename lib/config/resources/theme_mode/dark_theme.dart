@@ -26,7 +26,7 @@ class DarkTheme with SubThemeData {
         textStyle: appTextStyle.bodyMedium20w4,
         menuStyle: getMenuStyle(),
       ),
-      scaffoldBackgroundColor: AppColors.blue,
+      scaffoldBackgroundColor: AppColors.backgroundDarkColor,
       inputDecorationTheme: getInputDecorationTheme(AppColors.white),
     );
   }
