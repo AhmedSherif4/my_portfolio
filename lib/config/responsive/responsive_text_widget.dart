@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/config/resources/app_animations.dart';
 
 import '../resources/app_text_style.dart';
 
-class ResponsiveDisplayLargeWidget extends StatelessWidget {
+class ResponsiveDisplayLargeAnimatedWidget extends StatelessWidget {
   final String label;
 
-  const ResponsiveDisplayLargeWidget({super.key, required this.label});
+  const ResponsiveDisplayLargeAnimatedWidget({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class ResponsiveDisplayLargeWidget extends StatelessWidget {
           style: AppTextStyle()
               .displayLarge40w4
               .copyWith(fontFamily: AppTextStyle.playfairDisplay),
-        ),
+        ).animateText(),
       ),
     );
   }

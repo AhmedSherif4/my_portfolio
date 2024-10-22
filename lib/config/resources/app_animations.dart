@@ -233,3 +233,34 @@ extension WidgetAnimationExtension on Widget {
     );
   }
 }
+
+extension AnimateTextExtension on Text {
+  Widget animateText({Duration duration = const Duration(seconds: 2)}) {
+    final text = data ?? '';
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: text.split('').asMap().entries.map((entry) {
+        int index = entry.key;
+        String char = entry.value;
+        return Text(char, style: style).animate(
+          effects: [
+            FadeEffect(
+              duration: duration,
+              curve: Curves.easeIn,
+              begin: 0.0,
+              end: 1.0,
+              delay: Duration(milliseconds: index * 100),
+            ),
+            MoveEffect(
+              duration: duration,
+              curve: Curves.easeOut,
+              begin: const Offset(0, 5),
+              end: Offset.zero,
+              delay: Duration(milliseconds: index * 100),
+            ),
+          ],
+        );
+      }).toList(),
+    );
+  }
+}
