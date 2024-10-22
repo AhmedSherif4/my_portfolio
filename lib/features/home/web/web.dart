@@ -19,7 +19,7 @@ class HomeWeb extends StatelessWidget {
           child: Column(
             children: [
               const CustomAppBarWidget(),
-              ResponsiveDisplayLargeWidget(
+              ResponsiveDisplayLargeAnimatedWidget(
                 label: AppStrings.welcome.tr(),
               ),
               Container(

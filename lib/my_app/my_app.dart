@@ -135,7 +135,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      title: AppStrings.appName.tr(),
+      title: "Ahmed's Portfolio",
       theme: ThemeManager.appThemeData[AppTheme.light],
       darkTheme: ThemeManager.appThemeData[AppTheme.dark],
       themeMode: context.read<AppSettingsCubit>().getThemeMode()
