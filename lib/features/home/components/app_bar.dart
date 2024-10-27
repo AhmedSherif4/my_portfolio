@@ -64,13 +64,13 @@ class CustomAppBarWidget extends StatelessWidget {
             Text(
               'Ahmed Sherif',
               style: AppReference.deviceIsWeb
-                  ? AppTextStyle().playfairDisplay.bodyMedium20w4
-                  : AppTextStyle().playfairDisplay.labelMedium14w5,
+                  ? AppTextStyle().darkColor.playfairDisplay.bodyMedium20w4
+                  : AppTextStyle().darkColor.playfairDisplay.labelMedium14w5,
             ).animateShimmer(),
             SvgPicture.asset(
               AppImagesAssets.sLogo,
-              width: 50.responsiveWidth,
-              height: 50.responsiveHeight,
+              width: 100.responsiveWidth,
+              height: 100.responsiveHeight,
             ).animateScaleNFadeVertical(),
           ],
         ),

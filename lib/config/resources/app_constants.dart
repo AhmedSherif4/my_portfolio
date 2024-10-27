@@ -40,8 +40,8 @@ abstract class AppConstants {
 
   static const double iconSizeS20 = 20;
 
-  static const double appLogoHeight = 110;
-  static const double appLogoWidth = 110;
+  static const double appLogoHeight = 200;
+  static const double appLogoWidth = 200;
 
   static const String primaryColorHexCode = '#1F477A';
   static const Duration durationOfConfetti = Duration(milliseconds: 100);
@@ -67,6 +67,6 @@ abstract class AppConstants {
           AppConstants.appBorderRadiusR20.responsiveSize,
         ),
         color: backgroundColor ?? AppColors.textColor6,
-        boxShadow: [AppShadow.appBoxShadow()],
+        boxShadow: [AppShadow.outerShadow],
       );
 }

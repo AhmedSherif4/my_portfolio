@@ -59,4 +59,31 @@ abstract class AppStrings {
   static const String female = 'female';
 
   static const String welcome = 'welcome';
+
+  static const String aLittleAboutMe = 'aLittleAboutMe';
+
+  static const String descriptionALittleAboutMe = 'descriptionALittleAboutMe';
+
+  static const String someTechnologiesIveWorkedUpon =
+      'someTechnologiesIveWorkedUpon';
+
+  static const String somePrinciplesArchitecturesIveWorkedBy =
+      'somePrinciplesArchitecturesIveWorkedBy';
+  static const String article = 'article';
+
+  static const String getInTouch = 'getInTouch';
+  static const String getInTouchDescription = 'getInTouchDescription';
+
+  static const String oneOfMyLectures = 'oneOfMyLectures';
+
+  static const String visitMyChannel = 'visitMyChannel';
+
+  static const String myPreviousProjects = 'myPreviousProjects';
+
+  static const String about = 'about';
+  static const String skills = 'skills';
+  static const String projects = 'projects';
+  static const String articles = 'articles';
+  static const String lectures = 'lectures';
+  static const String contact = 'contact';
 }

@@ -63,7 +63,9 @@ class DefaultButtonWidget extends StatelessWidget {
         horizontal: textHorizontalPadding.responsiveSize,
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(borderSize.responsiveSize),
+        borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20.responsiveSize),
+            bottomRight: Radius.circular(20.responsiveSize)),
         side: BorderSide(
           color: borderColor ?? AppColors.primaryColor(context),
         ),

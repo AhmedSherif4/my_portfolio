@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/config/resources/app_animations.dart';
 
 import '../resources/app_text_style.dart';
 
@@ -20,7 +19,37 @@ class ResponsiveDisplayLargeAnimatedWidget extends StatelessWidget {
           style: AppTextStyle()
               .displayLarge40w4
               .copyWith(fontFamily: AppTextStyle.playfairDisplay),
-        ).animateText(),
+        ),
+      ),
+    );
+  }
+}
+
+class ResponsiveBodyMediumAnimatedWidget extends StatelessWidget {
+  final bool isCentered;
+
+  final String label;
+
+  const ResponsiveBodyMediumAnimatedWidget({
+    super.key,
+    required this.label,
+    this.isCentered = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    // double screenWidth = MediaQuery.of(context).size.width;
+    return SizedBox(
+      width: double.infinity,
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(
+          label,
+          style: AppTextStyle().bodyMedium20w4.copyWith(
+                fontFamily: AppTextStyle.playfairDisplay,
+              ),
+          textAlign: isCentered ? TextAlign.center : null,
+        ),
       ),
     );
   }

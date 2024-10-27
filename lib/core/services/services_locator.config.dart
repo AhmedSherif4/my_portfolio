@@ -31,6 +31,8 @@ import 'package:my_portfolio/core/api/network_info.dart' as _i494;
 import 'package:my_portfolio/core/services/third_party_instance.dart' as _i360;
 import 'package:my_portfolio/core/shared_models/user/data/user_local_data_source/user_local_data_source.dart'
     as _i608;
+import 'package:my_portfolio/features/home/view_model/home_cubit.dart'
+    as _i1020;
 import 'package:my_portfolio/my_app/app_settings/app_settings_cubit.dart'
     as _i673;
 import 'package:my_portfolio/my_app/global/global_view_model/global_bloc.dart'
@@ -54,6 +56,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => injectableModule.sharedPreferences,
       preResolve: true,
     );
+    gh.factory<_i1020.HomeCubit>(() => _i1020.HomeCubit());
     gh.factory<_i436.GlobalBloc>(() => _i436.GlobalBloc());
     gh.factory<_i640.SplashBloc>(() => _i640.SplashBloc());
     gh.lazySingleton<_i282.AppInterceptors>(() => _i282.AppInterceptors());

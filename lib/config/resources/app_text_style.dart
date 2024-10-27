@@ -163,6 +163,8 @@ extension AppStyleFontFamily on AppTextStyle {
 extension AppStyleColor on AppTextStyle {
   AppTextStyle get textColor => copyWith(color: AppColors.textColor);
 
+  AppTextStyle get darkColor => copyWith(color: AppColors.darkColor);
+
   AppTextStyle get textColor2 => copyWith(color: AppColors.textColor2);
 
   AppTextStyle get textColor3 => copyWith(color: AppColors.textColor3);

@@ -105,8 +105,7 @@ dependencies:
   easy_localization: ^3.0.7
   flutter_phoenix: ^1.1.1
   shared_preferences: ^2.3.2
-
-
+  youtube_player_iframe: ^5.2.0
 
 
 

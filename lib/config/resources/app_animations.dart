@@ -6,17 +6,17 @@ extension WidgetAnimationExtension on Widget {
   //! to show any widget from right[start] to left[end]
   /// from start to end with fade
   Widget animateRightLeft({
-    Duration duration = const Duration(milliseconds: 500),
+    Duration duration = const Duration(seconds: 1),
     bool isFromStart = true,
   }) {
     return animate()
         .fadeIn(
-          duration: 500.ms,
+          duration: 1.seconds,
           curve: Curves.easeInOutQuart,
         )
         .moveX(
           delay: 500.ms,
-          begin: isFromStart ? 50 : -50,
+          begin: isFromStart ? 500 : -500,
           end: 0,
           duration: duration,
           curve: Curves.easeInOutQuart,
@@ -165,7 +165,7 @@ extension WidgetAnimationExtension on Widget {
   ///! to show texts, images, icons, etc, حاجة تظهر من النص وتبدأ تكبر
   /// become bigger horizontally
   Widget animateScaleNFadeHorizontal({
-    Duration duration = const Duration(milliseconds: 1000),
+    Duration duration = const Duration(seconds: 2),
     Alignment alignment = Alignment.center,
   }) {
     return animate()
@@ -209,7 +209,7 @@ extension WidgetAnimationExtension on Widget {
   //? hide to visibility case
   /// After a while it appears
   Widget animateAfterDurationVisibility({
-    Duration duration = const Duration(milliseconds: 500),
+    Duration duration = const Duration(seconds: 2),
     bool maintain = false,
   }) {
     return animate().visibility(
@@ -230,37 +230,6 @@ extension WidgetAnimationExtension on Widget {
       delay: 500.ms,
       duration: 500.ms,
       curve: Curves.easeInOutQuart,
-    );
-  }
-}
-
-extension AnimateTextExtension on Text {
-  Widget animateText({Duration duration = const Duration(seconds: 2)}) {
-    final text = data ?? '';
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: text.split('').asMap().entries.map((entry) {
-        int index = entry.key;
-        String char = entry.value;
-        return Text(char, style: style).animate(
-          effects: [
-            FadeEffect(
-              duration: duration,
-              curve: Curves.easeIn,
-              begin: 0.0,
-              end: 1.0,
-              delay: Duration(milliseconds: index * 100),
-            ),
-            MoveEffect(
-              duration: duration,
-              curve: Curves.easeOut,
-              begin: const Offset(0, 5),
-              end: Offset.zero,
-              delay: Duration(milliseconds: index * 100),
-            ),
-          ],
-        );
-      }).toList(),
     );
   }
 }
