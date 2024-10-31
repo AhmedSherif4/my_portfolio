@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-
 class HomeIOS extends StatefulWidget {
   const HomeIOS({super.key});
 
@@ -13,8 +12,11 @@ class _HomeIOSState extends State<HomeIOS> {
 
   @override
   Widget build(BuildContext context) {
+    //todo : try the package of ios widgets
     return CupertinoPageScaffold(
-      child: SafeArea(child: Text('Iphon'),),
+      child: SafeArea(
+        child: Text('Iphon'),
+      ),
     );
   }
 }

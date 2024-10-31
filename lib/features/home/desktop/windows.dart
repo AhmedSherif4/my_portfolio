@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/app_bar.dart';
+import '../web/web.dart';
 
 class HomeWindows extends StatefulWidget {
   const HomeWindows({super.key});
@@ -12,14 +12,7 @@ class HomeWindows extends StatefulWidget {
 class _HomeWindowsState extends State<HomeWindows> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            CustomAppBarWidget(),
-          ],
-        ),
-      ),
-    );
+    //todo: try the package of windows widgets
+    return HomeWeb();
   }
 }

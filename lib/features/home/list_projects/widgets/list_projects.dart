@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/config/responsive/responsive_extensions.dart';
 import 'package:my_portfolio/my_app/app_reference.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../controller/list_project_controller.dart';
 import '../model/project_model.dart';
@@ -100,7 +101,11 @@ class _ProjectsShowWidgetState extends State<ProjectsShowWidget>
 
   Widget _itemList(ProjectsModel project) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () async {
+        final Uri url = Uri.parse(project.uri);
+
+        await launchUrl(url);
+      },
       child: Padding(
         padding: EdgeInsets.all(8.0.responsiveSize),
         child: Container(

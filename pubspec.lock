@@ -574,6 +574,54 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.10+2"
+  firebase_app_check:
+    dependency: transitive
+    description:
+      name: firebase_app_check
+      sha256: b5b3c1df2698d6b6bd183f27fb10fbf61f9a0a564d8ccba3d87d0e0760a9ffea
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.1+4"
+  firebase_app_check_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_app_check_platform_interface
+      sha256: "8dbb826d99c67512212331331461ee142e46645740f1c1209706ca2f72958e57"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0+38"
+  firebase_app_check_web:
+    dependency: transitive
+    description:
+      name: firebase_app_check_web
+      sha256: d9cf8d7e7eb904399784ecdc21ac66119ff2a93181bd7a3f8ab43e8220ad0be8
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
+  firebase_auth:
+    dependency: transitive
+    description:
+      name: firebase_auth
+      sha256: d453acec0d958ba0e25d41a9901b32cb77d1535766903dea7a61b2788c304596
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.3.1"
+  firebase_auth_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_auth_platform_interface
+      sha256: "78966c2ef774f5bf2a8381a307222867e9ece3509110500f7a138c115926aa65"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.4.7"
+  firebase_auth_web:
+    dependency: transitive
+    description:
+      name: firebase_auth_web
+      sha256: "77ad3b252badedd3f08dfa21a4c7fe244be96c6da3a4067f253b13ea5d32424c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.13.2"
   firebase_core:
     dependency: "direct main"
     description:
@@ -598,6 +646,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.18.1"
+  firebase_data_connect:
+    dependency: "direct main"
+    description:
+      name: firebase_data_connect
+      sha256: "0893243bf24fbb7ae82a53b751a85e8fa6c5096ddff380eccb0c1efa11029f5c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.2+1"
   firebase_messaging:
     dependency: "direct main"
     description:
@@ -858,6 +914,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.12.4+2"
+  googleapis_auth:
+    dependency: transitive
+    description:
+      name: googleapis_auth
+      sha256: befd71383a955535060acde8792e7efc11d2fccd03dd1d3ec434e85b68775938
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.6.0"
   gradient_borders:
     dependency: transitive
     description:
@@ -874,6 +938,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
+  grpc:
+    dependency: transitive
+    description:
+      name: grpc
+      sha256: e93ee3bce45c134bf44e9728119102358c7cd69de7832d9a874e2e74eb8cab40
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.4"
   gtk:
     dependency: transitive
     description:
@@ -922,6 +994,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.2"
+  http2:
+    dependency: transitive
+    description:
+      name: http2
+      sha256: "9ced024a160b77aba8fb8674e38f70875e321d319e6f303ec18e87bd5a4b0c1d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.0"
   http_multi_server:
     dependency: transitive
     description:
@@ -1474,6 +1554,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.1"
+  protobuf:
+    dependency: transitive
+    description:
+      name: protobuf
+      sha256: "68645b24e0716782e58948f8467fd42a880f255096a821f9e7d0ec625b00c84d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0"
   provider:
     dependency: transitive
     description:

@@ -57,35 +57,35 @@ class GetInTouchLottieWidget extends StatefulWidget {
 
 class _GetInTouchLottieWidgetState extends State<GetInTouchLottieWidget>
     with TickerProviderStateMixin {
-  late final AnimationController _lottieController;
+  // late final AnimationController _lottieController;
 
   @override
   void initState() {
     super.initState();
 
-    _lottieController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 3),
-    );
+    // _lottieController = AnimationController(
+    //   vsync: this,
+    //   duration: const Duration(seconds: 3),
+    // );
   }
 
   @override
   void dispose() {
-    _lottieController.dispose();
+    // _lottieController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    _lottieController
-      ..reset()
-      ..repeat();
+    // _lottieController
+    //   ..reset()
+    //   ..repeat();
     return SizedBox(
       width: 20.responsiveWidth,
       height: 100.responsiveHeight,
       child: Lottie.asset(
         widget.lottieAssert,
-        controller: _lottieController,
+        // controller: _lottieController,
       ),
     );
   }

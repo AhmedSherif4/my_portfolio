@@ -30,7 +30,7 @@ Future<void> main() async {
 
   runApp(
     EasyLocalization(
-      supportedLocales: const [arabicLocale, englishLocale],
+      supportedLocales: const [englishLocale, arabicLocale],
       path: assetPathLocalization,
       // phoenix for restart app when we change the language
       //! for Localization

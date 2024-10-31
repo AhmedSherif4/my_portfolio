@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/config/resources/app_assets.dart';
-import 'package:my_portfolio/features/home/components/lottie_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../config/resources/app_constants.dart';
@@ -28,62 +27,37 @@ class CustomBottomAppBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    IconButton(
-                      onPressed: () async {
-                        final Uri emailLaunchUri = Uri(
-                          scheme: 'mailto',
-                          path: 'ahmedsherif4175@gmail.com',
-                        );
-                        await launchUrl(emailLaunchUri);
-                      },
-                      icon: GetInTouchLottieWidget(
-                          lottieAssert: AppLottieAssets.sGmail),
+                    _IconButtonWidget(
+                      uri: 'ahmedsherif4175@gmail.com',
+                      image: AppIconsAssets.pGmail,
                     ),
-                    IconButton(
-                      onPressed: () async {
-                        final Uri url = Uri.parse(
-                            'https://www.facebook.com/profile.php?id=100039122532490');
-                        await launchUrl(url);
-                      },
-                      icon: GetInTouchLottieWidget(
-                          lottieAssert: AppLottieAssets.sFacebook),
+                    _IconButtonWidget(
+                      uri:
+                          'https://www.facebook.com/profile.php?id=100039122532490',
+                      image: AppIconsAssets.pFacebook,
                     ),
-                    IconButton(
-                      onPressed: () async {
-                        final Uri url =
-                            Uri.parse('https://github.com/AhmedSherif4');
-                        await launchUrl(url);
-                      },
-                      icon: GetInTouchLottieWidget(
-                          lottieAssert: AppLottieAssets.sGitHub),
+                    _IconButtonWidget(
+                      uri: 'https://github.com/AhmedSherif4',
+                      image: AppIconsAssets.pGithub,
                     ),
-                    IconButton(
-                      onPressed: () async {
-                        final Uri url = Uri.parse(
-                            'https://www.linkedin.com/in/ahmed-sherif-5587b81b4/');
-                        await launchUrl(url);
-                      },
-                      icon: GetInTouchLottieWidget(
-                          lottieAssert: AppLottieAssets.sLinkedIn),
+                    _IconButtonWidget(
+                      uri:
+                          'https://www.linkedin.com/in/ahmed-sherif-5587b81b4/',
+                      image: AppIconsAssets.pLinkedIn,
                     ),
-                    IconButton(
-                      onPressed: () async {
-                        final Uri url = Uri.parse(
-                            'https://www.youtube.com/@ahmedsherif948');
-                        await launchUrl(url);
-                      },
-                      icon: GetInTouchLottieWidget(
-                          lottieAssert: AppLottieAssets.sYoutube),
+                    _IconButtonWidget(
+                      uri: 'https://www.youtube.com/@ahmedsherif948',
+                      image: AppIconsAssets.pYoutube,
                     ),
                   ],
                 ),
                 Text(
                   '© Ahmed Sherif 2024\n Powered By Flutter',
-                  style: AppTextStyle().darkColor.labelLarge16w5.copyWith(
+                  style: const AppTextStyle().darkColor.labelLarge16w5.copyWith(
                         fontSize: 10,
                       ),
                   textAlign: TextAlign.center,
@@ -94,6 +68,34 @@ class CustomBottomAppBar extends StatelessWidget {
         ),
       ),
     );
-    ;
+  }
+}
+
+class _IconButtonWidget extends StatelessWidget {
+  final String uri;
+  final String image;
+
+  const _IconButtonWidget({super.key, required this.uri, required this.image});
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        onPressed: () async {
+          final Uri url = (uri.contains('gmail'))
+              ? Uri(
+                  scheme: 'mailto',
+                  path: uri,
+                )
+              : Uri.parse(uri);
+
+          await launchUrl(url);
+        },
+        icon: Image.asset(
+          image,
+          height: AppReference.deviceHeight(context) * 0.05,
+        ) /* GetInTouchLottieWidget(
+                          lottieAssert: AppLottieAssets.sYoutube),
+                    */
+        );
   }
 }

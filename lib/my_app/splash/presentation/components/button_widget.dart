@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_portfolio/config/resources/app_animations.dart';
 import 'package:my_portfolio/config/resources/app_text_style.dart';
 import 'package:my_portfolio/config/responsive/responsive_extensions.dart';
 
@@ -95,6 +94,6 @@ class DefaultButtonWidget extends StatelessWidget {
           ]
         ],
       ),
-    ).animateShimmer();
+    ) /*.animateShimmer()*/;
   }
 }

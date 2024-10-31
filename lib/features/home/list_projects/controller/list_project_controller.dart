@@ -33,45 +33,48 @@ class ListProjectsController {
 
   List<ProjectsModel> projects = [
     ProjectsModel(
-      name: "Tasesse",
+      name: "Taseese",
       description:
-          "Education App Education App Education App Education App Education App Education App Education App Education App Education App Education App Education App Education App ",
-      imageUrl: AppIconsAssets.pPostman,
+          'An educational application that contains educational stages that suit all ages. In each stage there is a group of classes and we have materials for all stages and sub-sections for each subject. There is a group of questions for each section that you can evaluate your performance, solve tests and raise your educational level.',
+      imageUrl: AppIconsAssets.pTaseese,
+      uri:
+          'https://play.google.com/store/apps/details?id=com.edu_tasses.tasesse_app&pli=1',
     ),
     ProjectsModel(
-      name: "Tasesse",
-      description: "Education App",
-      imageUrl: AppIconsAssets.pPostman,
+      name: "Point Counter",
+      description: '',
+      imageUrl: AppIconsAssets.pPointCounter,
+      uri: 'https://github.com/AhmedSherif4/point_counter#readme',
     ),
     ProjectsModel(
-      name: "Tasesse",
-      description: "Education App",
-      imageUrl: AppIconsAssets.pPostman,
+      name: "Sky Cast",
+      description: '',
+      imageUrl: AppIconsAssets.pSkyCase,
+      uri: 'https://github.com/AhmedSherif4/sky_cast#readm',
     ),
     ProjectsModel(
-      name: "Tasesse",
-      description: "Education App",
-      imageUrl: AppIconsAssets.pPostman,
+      name: "To Do Do",
+      description: '',
+      imageUrl: AppIconsAssets.pToDoDO,
+      uri: 'https://github.com/AhmedSherif4/to_do_do#readme',
     ),
     ProjectsModel(
-      name: "Tasesse",
-      description: "Education App",
-      imageUrl: AppIconsAssets.pPostman,
+      name: "Tick Tack",
+      description: '',
+      imageUrl: AppIconsAssets.pTickTack,
+      uri: 'https://github.com/AhmedSherif4/tick_tack',
     ),
     ProjectsModel(
-      name: "Tasesse",
-      description: "Education App",
-      imageUrl: AppIconsAssets.pPostman,
+      name: "Posts App",
+      description: '',
+      imageUrl: AppIconsAssets.pPostsApp,
+      uri: 'https://github.com/AhmedSherif4/posts_app',
     ),
     ProjectsModel(
-      name: "Tasesse",
-      description: "Education App",
-      imageUrl: AppIconsAssets.pPostman,
-    ),
-    ProjectsModel(
-      name: "Tasesse",
-      description: "Education App",
-      imageUrl: AppIconsAssets.pPostman,
+      name: "Chat App",
+      description: '',
+      imageUrl: AppIconsAssets.pChatApp,
+      uri: 'https://github.com/AhmedSherif4/chat_app',
     ),
   ];
 }

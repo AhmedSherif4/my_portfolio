@@ -15,7 +15,6 @@ import '../../../config/resources/app_colors.dart';
 import '../../../config/resources/app_constants.dart';
 import '../../../config/responsive/responsive_text_widget.dart';
 import '../../../config/responsive/responsive_widget.dart';
-import '../../list_projects/widgets/list_projects.dart';
 import '../components/app_bar.dart';
 import '../components/article_widget.dart';
 import '../components/custom_bottom_app_bar.dart';
@@ -23,6 +22,7 @@ import '../components/dividerWidget.dart';
 import '../components/lottie_widget.dart';
 import '../components/youtube_view.dart';
 import '../data/cosnt_data.dart';
+import '../list_projects/widgets/list_projects.dart';
 
 class HomeWeb extends StatefulWidget {
   const HomeWeb({super.key});
@@ -82,7 +82,7 @@ class _HomeWebState extends State<HomeWeb> {
                         ),
                         30.responsiveHeight.sizedBoxHeight,
                         Container(
-                          height: AppReference.deviceHeight(context) * 0.5,
+                          height: AppReference.deviceHeight(context) * 0.4,
                           width: AppReference.deviceWidth(context) * 0.5,
                           decoration: AppConstants.containerDecoration(),
                           child: ClipRRect(
@@ -422,7 +422,7 @@ class _HomeWebState extends State<HomeWeb> {
                         await launchUrl(url);
                       },
                       isExpanded: false,
-                      labelColor: AppColors.primaryColor4(context),
+                      // labelColor: AppColors.primaryColor4(context),
                     ),
                   ),
                   60.responsiveHeight.sizedBoxHeight,
@@ -450,13 +450,13 @@ class _HomeWebState extends State<HomeWeb> {
                 alignment: WrapAlignment.end,
                 children: [
                   ...ConstData.sectionsOfHome.entries.map(
-                    (e) => Container(
-                      decoration: AppConstants.containerDecoration(
-                          backgroundColor: AppColors.darkColor3),
-                      margin: EdgeInsets.all(5.responsiveSize),
-                      padding: EdgeInsets.all(10.responsiveSize),
-                      child: GestureDetector(
-                        onTap: () => homeCubit.scrollToSection(e.value),
+                    (e) => GestureDetector(
+                      onTap: () => homeCubit.scrollToSection(e.value),
+                      child: Container(
+                        decoration: AppConstants.containerDecoration(
+                            backgroundColor: AppColors.darkColor3),
+                        margin: EdgeInsets.all(5.responsiveSize),
+                        padding: EdgeInsets.all(10.responsiveSize),
                         child: Text(
                           e.key.tr(),
                           style: const AppTextStyle()

@@ -9,6 +9,7 @@ import 'package:my_portfolio/config/resources/app_text_style.dart';
 import 'package:my_portfolio/config/responsive/responsive_extensions.dart';
 import 'package:my_portfolio/my_app/app_reference.dart';
 
+import '../../../config/resources/app_colors.dart';
 import '../../../my_app/app_settings/app_settings_cubit.dart';
 import 'custom_painter_widgets.dart';
 
@@ -60,18 +61,25 @@ class CustomAppBarWidget extends StatelessWidget {
                 ],
               );
             }),
-            Spacer(),
+            const Spacer(),
             Text(
               'Ahmed Sherif',
               style: AppReference.deviceIsWeb
-                  ? AppTextStyle().darkColor.playfairDisplay.bodyMedium20w4
-                  : AppTextStyle().darkColor.playfairDisplay.labelMedium14w5,
+                  ? const AppTextStyle()
+                      .playfairDisplay
+                      .bodyMedium20w4
+                      .copyWith(color: AppColors.darkColor)
+                  : const AppTextStyle()
+                      .darkColor
+                      .playfairDisplay
+                      .labelMedium14w5
+                      .copyWith(color: AppColors.darkColor),
             ).animateShimmer(),
             SvgPicture.asset(
               AppImagesAssets.sLogo,
               width: 100.responsiveWidth,
               height: 100.responsiveHeight,
-            ).animateScaleNFadeVertical(),
+            ) /*.animateScaleNFadeVertical()*/,
           ],
         ),
       ),

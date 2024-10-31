@@ -106,6 +106,7 @@ dependencies:
   flutter_phoenix: ^1.1.1
   shared_preferences: ^2.3.2
   youtube_player_iframe: ^5.2.0
+  firebase_data_connect: ^0.1.2+1
 
 
 

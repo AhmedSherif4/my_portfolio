@@ -30,7 +30,7 @@ class AppPreferences {
     if (appLocale != null && appLocale.isNotEmpty) {
       return appLocale;
     } else {
-      return LanguageType.arabic.getValue();
+      return LanguageType.english.getValue();
     }
   }
 
@@ -62,6 +62,6 @@ class AppPreferences {
   }
 
   isDarkModeOn() {
-    return _sharedPreferences.getBool(preferenceKeyDarkThemeModeOn) ?? false;
+    return _sharedPreferences.getBool(preferenceKeyDarkThemeModeOn) ?? true;
   }
 }

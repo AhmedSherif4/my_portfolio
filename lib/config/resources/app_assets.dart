@@ -41,6 +41,17 @@ abstract class AppIconsAssets {
   static const String pSql = '${_basePath}sql.png';
   static const String pVscode = '${_basePath}vscode.png';
   static const String pRestful = '${_basePath}restful.png';
+  static const String pFacebook = '${_basePath}facebook.png';
+  static const String pGmail = '${_basePath}gmail.png';
+  static const String pLinkedIn = '${_basePath}linkedin.png';
+  static const String pYoutube = '${_basePath}youtube.png';
+  static const String pTaseese = '${_basePath}taseese.png';
+  static const String pPointCounter = '${_basePath}point_counter.png';
+  static const String pSkyCase = '${_basePath}sky_cast.png';
+  static const String pToDoDO = '${_basePath}to_do_do.png';
+  static const String pTickTack = '${_basePath}xo.png';
+  static const String pPostsApp = '${_basePath}posts_app.png';
+  static const String pChatApp = '${_basePath}chat.png';
 }
 
 abstract class AppLottieAssets {
