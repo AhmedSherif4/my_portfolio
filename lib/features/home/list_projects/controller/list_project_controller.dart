@@ -41,40 +41,43 @@ class ListProjectsController {
           'https://play.google.com/store/apps/details?id=com.edu_tasses.tasesse_app&pli=1',
     ),
     ProjectsModel(
+      name: "Chat App",
+      description: "Chat App Built with Flutter",
+      imageUrl: AppIconsAssets.pChatApp,
+      uri: 'https://github.com/AhmedSherif4/chat_app',
+    ),
+    ProjectsModel(
+      name: "To Do Do",
+      description:
+          "A To-do project with Dart/Light mode, for making Todo with a Title and Description, also can make the Todo daily, weekly, and monthly repeat. and change the color of Todo, There's a Complete/unComplete option, and select all as complete. There is also a page for counting the Todos which is completed and which is not.",
+      imageUrl: AppIconsAssets.pToDoDO,
+      uri: 'https://github.com/AhmedSherif4/to_do_do#readme',
+    ),
+    ProjectsModel(
+      name: "Posts App",
+      description: "Posts App Built with Flutter",
+      imageUrl: AppIconsAssets.pPostsApp,
+      uri: 'https://github.com/AhmedSherif4/posts_app',
+    ),
+    ProjectsModel(
+      name: "Tick Tack",
+      description: "X/O Game Built with Flutter",
+      imageUrl: AppIconsAssets.pTickTack,
+      uri: 'https://github.com/AhmedSherif4/tick_tack',
+    ),
+    ProjectsModel(
       name: "Point Counter",
-      description: '',
+      description:
+          "A project for counting the number of points for two players, when one of the players reaches the Limit Points -which you select-, the application will declare the winner.",
       imageUrl: AppIconsAssets.pPointCounter,
       uri: 'https://github.com/AhmedSherif4/point_counter#readme',
     ),
     ProjectsModel(
       name: "Sky Cast",
-      description: '',
+      description:
+          "A project for showing the weather of any city you want, and has an option for making dart/light mode (and the primary color depending on the current weather) and making the temperature units Fahrenheit / celsius.",
       imageUrl: AppIconsAssets.pSkyCase,
-      uri: 'https://github.com/AhmedSherif4/sky_cast#readm',
-    ),
-    ProjectsModel(
-      name: "To Do Do",
-      description: '',
-      imageUrl: AppIconsAssets.pToDoDO,
-      uri: 'https://github.com/AhmedSherif4/to_do_do#readme',
-    ),
-    ProjectsModel(
-      name: "Tick Tack",
-      description: '',
-      imageUrl: AppIconsAssets.pTickTack,
-      uri: 'https://github.com/AhmedSherif4/tick_tack',
-    ),
-    ProjectsModel(
-      name: "Posts App",
-      description: '',
-      imageUrl: AppIconsAssets.pPostsApp,
-      uri: 'https://github.com/AhmedSherif4/posts_app',
-    ),
-    ProjectsModel(
-      name: "Chat App",
-      description: '',
-      imageUrl: AppIconsAssets.pChatApp,
-      uri: 'https://github.com/AhmedSherif4/chat_app',
+      uri: 'https://github.com/AhmedSherif4/sky_cast#readme',
     ),
   ];
 }
