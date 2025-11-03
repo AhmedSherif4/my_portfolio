@@ -13,7 +13,6 @@ class LightTheme with SubThemeData {
       brightness: Brightness.light,
       textTheme: getTextTheme(AppColors.textColor),
       elevatedButtonTheme: getElevatedButtonTheme(),
-      cardTheme: getCardTheme(AppColors.black),
       appBarTheme: getAppBarTheme(AppColors.black),
       switchTheme: getSwitchTheme(
         Icons.light_mode_rounded,

@@ -61,14 +61,14 @@ mixin SubThemeData {
 
   ElevatedButtonThemeData getElevatedButtonTheme() => ElevatedButtonThemeData(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(AppColors.white),
-          fixedSize: MaterialStatePropertyAll(
+          backgroundColor: WidgetStateProperty.all(AppColors.white),
+          fixedSize: WidgetStatePropertyAll(
             Size(
               296.responsiveWidth,
               55.responsiveHeight,
             ),
           ),
-          shape: MaterialStatePropertyAll(
+          shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
                 Radius.circular(10.responsiveSize),
@@ -192,8 +192,8 @@ mixin SubThemeData {
   }
 
   MenuStyle getMenuStyle() => MenuStyle(
-        backgroundColor: const MaterialStatePropertyAll(AppColors.gray),
-        shape: MaterialStatePropertyAll(
+        backgroundColor: const WidgetStatePropertyAll(AppColors.gray),
+        shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               ResponsiveManager.getSize(
@@ -203,7 +203,7 @@ mixin SubThemeData {
           ),
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        padding: MaterialStatePropertyAll(
+        padding: WidgetStatePropertyAll(
           EdgeInsets.all(10.0.responsiveSize),
         ),
       );

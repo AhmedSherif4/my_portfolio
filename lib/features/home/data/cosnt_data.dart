@@ -7,7 +7,7 @@ class ConstData {
   static const List listOfIconsTechnologies = [
     AppIconsAssets.pAndroidStudio,
     AppIconsAssets.pVscode,
-    AppIconsAssets.pKotlin,
+    AppIconsAssets.pSupabase,
     AppIconsAssets.pDart,
     AppIconsAssets.pFlutter,
     AppIconsAssets.pFirebase,

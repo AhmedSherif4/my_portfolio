@@ -5,7 +5,7 @@ import 'package:my_portfolio/config/resources/app_text_style.dart';
 import 'theme_manager.dart';
 
 class DarkTheme with SubThemeData {
-  AppTextStyle appTextStyle = AppTextStyle(color: AppColors.white);
+  AppTextStyle appTextStyle = const AppTextStyle(color: AppColors.white);
 
   ThemeData buildDarkTheme() {
     final ThemeData systemDarkTheme = ThemeData.dark();
@@ -13,7 +13,6 @@ class DarkTheme with SubThemeData {
       brightness: Brightness.dark,
       textTheme: getTextTheme(AppColors.textColor6),
       elevatedButtonTheme: getElevatedButtonTheme(),
-      cardTheme: getCardTheme(AppColors.white),
       appBarTheme: getAppBarTheme(AppColors.white),
       switchTheme: getSwitchTheme(
         Icons.dark_mode_rounded,

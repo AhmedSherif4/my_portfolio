@@ -2,12 +2,16 @@ class ProjectsModel {
   final String name;
   final String description;
   final String imageUrl;
-  final String uri;
+  final String? githubLink;
+  final String? androidLink;
+  final String? iosLink;
 
   ProjectsModel({
     required this.name,
     required this.description,
     required this.imageUrl,
-    required this.uri,
+    this.githubLink,
+    this.androidLink,
+    this.iosLink,
   });
 }
