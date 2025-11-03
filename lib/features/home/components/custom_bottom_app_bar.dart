@@ -75,7 +75,7 @@ class _IconButtonWidget extends StatelessWidget {
   final String uri;
   final String image;
 
-  const _IconButtonWidget({super.key, required this.uri, required this.image});
+  const _IconButtonWidget({required this.uri, required this.image});
 
   @override
   Widget build(BuildContext context) {

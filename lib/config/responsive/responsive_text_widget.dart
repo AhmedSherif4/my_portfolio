@@ -9,14 +9,13 @@ class ResponsiveDisplayLargeAnimatedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
     return SizedBox(
       width: double.infinity,
       child: FittedBox(
         fit: BoxFit.scaleDown,
         child: Text(
           label,
-          style: AppTextStyle()
+          style: const AppTextStyle()
               .displayLarge40w4
               .copyWith(fontFamily: AppTextStyle.playfairDisplay),
         ),
@@ -45,7 +44,7 @@ class ResponsiveBodyMediumAnimatedWidget extends StatelessWidget {
         fit: BoxFit.scaleDown,
         child: Text(
           label,
-          style: AppTextStyle().bodyMedium20w4.copyWith(
+          style: const AppTextStyle().bodyMedium20w4.copyWith(
                 fontFamily: AppTextStyle.playfairDisplay,
               ),
           textAlign: isCentered ? TextAlign.center : null,

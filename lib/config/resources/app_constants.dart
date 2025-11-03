@@ -67,6 +67,6 @@ abstract class AppConstants {
           AppConstants.appBorderRadiusR20.responsiveSize,
         ),
         color: backgroundColor ?? AppColors.textColor6,
-        boxShadow: [AppShadow.outerShadow],
+        boxShadow: const [AppShadow.outerShadow],
       );
 }

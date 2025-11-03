@@ -29,7 +29,7 @@ class BodyOfHome extends StatelessWidget {
             willChange: true,
           ),
         ),
-        Container(
+        SizedBox(
           width: double.infinity,
           height: double.infinity,
           child: SingleChildScrollView(

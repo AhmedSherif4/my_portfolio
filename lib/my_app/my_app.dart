@@ -8,7 +8,6 @@ import 'package:my_portfolio/config/base_local_data_source/app_preferences.dart'
 import 'package:my_portfolio/config/resources/app_strings.dart';
 import 'package:my_portfolio/config/responsive/responsive.dart';
 import 'package:my_portfolio/core/services/services_locator.dart';
-import 'package:my_portfolio/my_app/deep_link.dart';
 
 import '../config/adaptive/platform_builder.dart';
 import '../config/resources/theme_mode/theme_manager.dart';
@@ -32,7 +31,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
-    DeepLinkManager.instance.initDeepLink();
     super.initState();
   }
 

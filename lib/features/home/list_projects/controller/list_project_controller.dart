@@ -69,7 +69,8 @@ class ListProjectsController {
     ),
     ProjectsModel(
       name: "Chat App",
-      description: "Chat App Built with Flutter",
+      description:
+          "A modern Chat mobile application built using Flutter with a Clean Architecture pattern. The project is designed for scalability, maintainability, and testability — integrating Bloc/Cubit for state management, GetIt for dependency injection, Supabase as the backend, Dio for API handling, Hive for local storage, and Firebase for analytics and services.",
       imageUrl: AppIconsAssets.pChatApp,
       githubLink: 'https://github.com/AhmedSherif4/chat_app',
     ),

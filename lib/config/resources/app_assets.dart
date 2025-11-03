@@ -53,9 +53,11 @@ abstract class AppIconsAssets {
   static const String pPostsApp = '${_basePath}posts_app.png';
   static const String pChatApp = '${_basePath}chat.png';
   static const String pSupabase = '${_basePath}supabase.png';
-  static const String pMideoApp = '${_basePath}medio.png';
+  static const String pMideoApp = '${_basePath}mideo.png';
   static const String pMedkingApp = '${_basePath}medking.png';
   static const String pECommerceApp = '${_basePath}e_commerc_app.png';
+  static const String pGoogleStore = '${_basePath}app_Store.png';
+  static const String pAppleStore = '${_basePath}google_play.png';
 }
 
 abstract class AppLottieAssets {

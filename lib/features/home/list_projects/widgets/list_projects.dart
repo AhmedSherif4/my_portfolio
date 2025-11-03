@@ -102,10 +102,8 @@ class _ProjectsShowWidgetState extends State<ProjectsShowWidget>
   Widget _itemList(ProjectsModel project) {
     return GestureDetector(
       onTap: () async {
-        if (project.githubLink != null) {
-          final Uri githubLink = Uri.parse(project.githubLink!);
-          await launchUrl(githubLink);
-        }
+        final String uri = project.androidLink ?? project.githubLink!;
+        await launchUrl(Uri.parse(uri));
       },
       child: Padding(
         padding: EdgeInsets.all(8.0.responsiveSize),
@@ -175,38 +173,6 @@ class _ProjectsShowWidgetState extends State<ProjectsShowWidget>
                   ),
                 ),
               ),
-              if (project.githubLink == null) ...[
-                Positioned(
-                  width: 25.responsiveSize,
-                  height: 25.responsiveSize,
-                  bottom: 10,
-                  right: AppReference.deviceWidth(context) * 0.05,
-                  child: IconButton(
-                    icon: const Icon(Icons.android_rounded),
-                    onPressed: () async {
-                      if (project.androidLink != null) {
-                        final Uri androidLink = Uri.parse(project.androidLink!);
-                        await launchUrl(androidLink);
-                      }
-                    },
-                  ),
-                ),
-                Positioned(
-                  width: 25.responsiveSize,
-                  height: 25.responsiveSize,
-                  bottom: 10,
-                  right: AppReference.deviceWidth(context) * 0.15,
-                  child: IconButton(
-                    icon: const Icon(Icons.apple_rounded),
-                    onPressed: () async {
-                      if (project.iosLink != null) {
-                        final Uri iosLink = Uri.parse(project.iosLink!);
-                        await launchUrl(iosLink);
-                      }
-                    },
-                  ),
-                ),
-              ]
             ],
           ),
         ),

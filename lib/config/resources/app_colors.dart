@@ -36,10 +36,10 @@ abstract class AppColors {
 
   ///background color
   static Color backgroundColor(BuildContext context) =>
-      isDarkMode(context) ? Color(0xFF001F3F) : Color(0xFFFFEAC5);
+      isDarkMode(context) ? const Color(0xFF001F3F) : const Color(0xFFFFEAC5);
 
-  static Color backgroundLightColor = Color(0xFFFFEAC5);
-  static Color backgroundDarkColor = Color(0xFF001F3F);
+  static Color backgroundLightColor = const Color(0xFFFFEAC5);
+  static Color backgroundDarkColor = const Color(0xFF001F3F);
 
   ///fields color
   static const Color white = Color(0xFFFFFFFF);

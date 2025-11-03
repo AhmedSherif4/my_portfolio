@@ -54,7 +54,7 @@ class ArticleWidget extends StatelessWidget {
                   height: boxConstraints.maxHeight * 0.2,
                   child: Text(
                     title,
-                    style: AppTextStyle().titleMedium26w5.copyWith(
+                    style: const AppTextStyle().titleMedium26w5.copyWith(
                         fontFamily: AppTextStyle.playfairDisplay, height: 1),
                   ),
                 ),
@@ -64,7 +64,7 @@ class ArticleWidget extends StatelessWidget {
                   height: boxConstraints.maxHeight * 0.3,
                   child: Text(
                     description,
-                    style: AppTextStyle().gray.labelSmall12w5,
+                    style: const AppTextStyle().gray.labelSmall12w5,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.justify,
                     maxLines: 8,
@@ -76,7 +76,7 @@ class ArticleWidget extends StatelessWidget {
                   height: boxConstraints.maxHeight * 0.05,
                   child: Text(
                     'CLICK FOR FULL ARTICLE:',
-                    style: AppTextStyle().labelMedium14w5.copyWith(
+                    style: const AppTextStyle().labelMedium14w5.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                   ),

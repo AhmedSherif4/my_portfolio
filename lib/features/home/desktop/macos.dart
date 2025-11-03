@@ -8,8 +8,6 @@ class HomeMacos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
-    //todo: try the package of macos widgets
-    return HomeWeb();
+    return const HomeWeb();
   }
 }

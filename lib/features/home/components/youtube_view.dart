@@ -16,7 +16,7 @@ class _YoutubeViewWidgetState extends State<YoutubeViewWidget> {
   void initState() {
     super.initState();
     _controller = YoutubePlayerController(
-      params: YoutubePlayerParams(
+      params: const YoutubePlayerParams(
         mute: true,
         showControls: true,
         showFullscreenButton: true,
@@ -37,7 +37,7 @@ class _YoutubeViewWidgetState extends State<YoutubeViewWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: AppReference.deviceWidth(context) * 0.7,
       height: AppReference.deviceHeight(context) * 0.7,
       child: YoutubePlayer(

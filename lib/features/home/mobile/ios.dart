@@ -13,7 +13,7 @@ class _HomeIOSState extends State<HomeIOS> {
   @override
   Widget build(BuildContext context) {
     //todo : try the package of ios widgets
-    return CupertinoPageScaffold(
+    return const CupertinoPageScaffold(
       child: SafeArea(
         child: Text('Iphon'),
       ),

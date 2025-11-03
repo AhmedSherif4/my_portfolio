@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/core/enum/enum_generation.dart';
@@ -28,7 +27,6 @@ class AppReference {
       themeData(context).brightness == Brightness.dark
           ? DarkColorControl()
           : LightColorControl();
-  static final deviceInfoPlugin = DeviceInfoPlugin();
   static final GlobalKey<NavigatorState> _navigatorKey =
       GlobalKey<NavigatorState>();
 
@@ -56,66 +54,6 @@ class AppReference {
       deviceIsTablet = false;
     } else {
       deviceIsTablet = true;
-    }
-  }
-
-  static Future<String> getMobileID() async {
-    if (AppReference.deviceIsIos) {
-      final iosInfo = await deviceInfoPlugin.iosInfo;
-      return iosInfo.identifierForVendor!;
-    } else if (AppReference.deviceIsAndroid) {
-      final androidInfo = await deviceInfoPlugin.androidInfo;
-      return androidInfo.id;
-    } else {
-      return '';
-    }
-  }
-
-  static Future<String> isPhysicalDevice() async {
-    if (AppReference.deviceIsIos) {
-      final iosInfo = await deviceInfoPlugin.iosInfo;
-      if (iosInfo.isPhysicalDevice) {
-        return "true";
-      } else {
-        return "false";
-      }
-    } else if (AppReference.deviceIsAndroid) {
-      final androidInfo = await deviceInfoPlugin.androidInfo;
-      if (androidInfo.isPhysicalDevice) {
-        print("true emulator");
-        return "true";
-      } else {
-        print("false emulator");
-        return "false";
-      }
-    } else {
-      return 'false';
-    }
-  }
-
-  static Future<bool> isHuaweiDevice() async {
-    if (AppReference.deviceIsAndroid) {
-      AndroidDeviceInfo androidInfo = await deviceInfoPlugin.androidInfo;
-      if (androidInfo.manufacturer.toLowerCase().contains('huawei')) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
-  }
-
-  static Future<bool> isAndroid13AndNewer() async {
-    if (deviceIsAndroid) {
-      final androidInfo = await deviceInfoPlugin.androidInfo;
-      if (androidInfo.version.sdkInt < 33) {
-        return false;
-      } else {
-        return true;
-      }
-    } else {
-      return false;
     }
   }
 

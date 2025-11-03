@@ -5,7 +5,7 @@ import 'package:my_portfolio/config/resources/app_text_style.dart';
 import 'theme_manager.dart';
 
 class LightTheme with SubThemeData {
-  AppTextStyle appTextStyle = AppTextStyle(color: AppColors.black);
+  AppTextStyle appTextStyle = const AppTextStyle(color: AppColors.black);
 
   ThemeData buildLightTheme() {
     final ThemeData systemLightTheme = ThemeData.light();

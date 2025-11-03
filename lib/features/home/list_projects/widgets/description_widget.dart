@@ -7,7 +7,7 @@ import '../model/project_model.dart';
 class DescriptionWidget extends StatelessWidget {
   final ProjectsModel project;
 
-  const DescriptionWidget({Key? key, required this.project}) : super(key: key);
+  const DescriptionWidget({super.key, required this.project});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class DescriptionWidget extends StatelessWidget {
           FittedBox(
             child: Text(
               project.name,
-              style: AppTextStyle()
+              style: const AppTextStyle()
                   .black
                   .bodyMedium20w4
                   .copyWith(fontFamily: AppTextStyle.playfairDisplay),
@@ -32,8 +32,8 @@ class DescriptionWidget extends StatelessWidget {
           Expanded(
             child: Text(
               project.description,
-              style: AppTextStyle().gray.labelSmall12w5,
-              textAlign: TextAlign.justify,
+              style: const AppTextStyle().gray.labelSmall12w5,
+              textAlign: TextAlign.left,
               overflow: TextOverflow.ellipsis,
               maxLines: 8,
             ),

@@ -101,17 +101,12 @@ mixin SubThemeData {
   }
 
   InputDecorationTheme getInputDecorationTheme(Color? colorDependOnTheme) {
-    AppTextStyle appTextStyle = AppTextStyle(color: colorDependOnTheme);
     return InputDecorationTheme(
       // content padding
       contentPadding: EdgeInsets.symmetric(
         horizontal: ResponsiveManager.getHorizontalSize(10),
         vertical: 0,
       ),
-
-      // hint style
-      // hintStyle: appTextStyle.hintTextStyle14,
-      // errorStyle: appTextStyle.errorTextStyle12,
 
       // enabled border style
       enabledBorder: OutlineInputBorder(

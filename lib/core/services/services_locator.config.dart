@@ -21,8 +21,6 @@ import 'package:my_portfolio/config/base_remote_data_source/base_remote_data_sou
     as _i852;
 import 'package:my_portfolio/config/base_repository/base_repository.dart'
     as _i318;
-import 'package:my_portfolio/config/notification/notification_setup.dart'
-    as _i465;
 import 'package:my_portfolio/config/storages/secure_storage.dart' as _i170;
 import 'package:my_portfolio/core/api/api_consumer.dart' as _i569;
 import 'package:my_portfolio/core/api/dio_consumer.dart' as _i259;
@@ -84,8 +82,6 @@ extension GetItInjectableX on _i174.GetIt {
             ));
     gh.factory<_i673.AppSettingsCubit>(
         () => _i673.AppSettingsCubit(gh<_i136.AppPreferences>()));
-    gh.lazySingleton<_i465.NotificationSetup>(
-        () => _i465.NotificationSetup(apiConsumer: gh<_i569.ApiConsumer>()));
     return this;
   }
 }

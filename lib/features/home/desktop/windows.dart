@@ -13,6 +13,6 @@ class _HomeWindowsState extends State<HomeWindows> {
   @override
   Widget build(BuildContext context) {
     //todo: try the package of windows widgets
-    return HomeWeb();
+    return const HomeWeb();
   }
 }

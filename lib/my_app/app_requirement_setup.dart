@@ -1,6 +1,5 @@
 import 'package:hive_flutter/adapters.dart';
 
-import '../config/storages/keys.dart';
 import '../core/shared_models/user/user_entity/user_entity.dart';
 
 class AppRequirementSetup {
